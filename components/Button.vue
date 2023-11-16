@@ -17,6 +17,8 @@ defineProps<{
     text-align: center;
     background-color: $c-primary;
     color: $c-primary-darken;
+    padding: .5em;
     border: none;
+    border-radius: 4px;
 }
 </style>
