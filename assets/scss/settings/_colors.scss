@@ -7,6 +7,7 @@ $c-warn: #ED3B3B;
 $c-white: #fff;
 $c-grayscale-1: #747474;
 $c-grayscale-2: #272727;
+$c-background: $c-white;
 
 :root{
     --c-primary: $c-primary:
@@ -16,10 +17,12 @@ $c-grayscale-2: #272727;
     --c-dark-mode: $c-dark-mode;
     --c-warn: $c-warn;
     --c-white: #fff;
-    --c-background: #fff;
+    --c-background: $c-background;
 }
 
 @media (prefers-color-scheme: dark){
+    $c-background: $c-dark;
+
     :root{
         --c-background: $c-dark;
     }

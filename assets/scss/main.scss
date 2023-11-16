@@ -1,2 +1,13 @@
-@import "settings/*.scss";
-@import "mixins/*.scss";
+@use "settings/fonts";
+@use "settings/colors";
+@use "settings/reset";
+@use "settings/variables";
+// @use "mixins/*.scss";
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden scroll;
+    font-family: "BAHNSCHRIFT";
+    background-color: $c-background;
+}
