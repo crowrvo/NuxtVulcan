@@ -21,6 +21,7 @@ export default defineNuxtConfig({
       },
       modules: {
         generateScopedName: "[sha256:hash:base64:16]",
+        localsConvention: "camelCase"
       },
     }
   },
