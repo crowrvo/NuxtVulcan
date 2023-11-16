@@ -1,15 +1,4 @@
 <template>
-  <div>
-    <h1>Default Layout</h1>
-    <slot />
-  </div>
+    <PageHeader />
+    <slot></slot>
 </template>
-
-<script lang="ts" setup>
-
-</script>
-
-<style>
-
-</style>
-
