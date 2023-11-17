@@ -39,8 +39,8 @@ const announces = [{
 </script>
 <template>
     <div :class="$style.container">
-        <DashboardWelcomeUser name="Douglas" image-src="/images/placeholder.jpg" />
-        <DashboardAnnouncement :announces="announces" />
+        <!-- <DashboardWelcomeUser name="Douglas" image-src="/images/placeholder.jpg" /> -->
+        <!-- <DashboardAnnouncement :announces="announces" /> -->
         <DashboardNovels :novels="novels">Suas obras</DashboardNovels>
     </div>
 </template>
@@ -52,8 +52,8 @@ const announces = [{
     grid-auto-flow: column dense;
     gap: 20px;
     grid-template-areas:
-        "welcome-user welcome-user welcome-user welcome-user"
-        "announcements announcements announcements announcements"
+        // "welcome-user welcome-user welcome-user welcome-user"
+        // "announcements announcements announcements announcements"
         "novels novels novels novels";
 }
 </style>
