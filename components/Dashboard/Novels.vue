@@ -1,0 +1,83 @@
+<script lang="ts" setup>
+type novelInfo = {
+    name: string;
+    workAs: string;
+    views: number;
+    chapters: number;
+    comments: number;
+    url: string;
+    backgroundUrl: string;
+}
+
+defineProps<{
+    novels: novelInfo[];
+}>()
+</script>
+<template>
+    <div :class="novelsModule.userNovels">
+        <h2 :class="novelsModule.userNovelsTitle">
+            <slot>Suas Novels</slot> <small>(Tradução e Autoral)</small>
+        </h2>
+        <div :class="novelsModule.userNovelsContainer">
+            <div :class="novelsModule.userNovelsList">
+                <DashboardNovelCard v-for="novel in novels" :novel="novel" />
+            </div>
+        </div>
+    </div>
+</template>
+<style lang="scss" module="novelsModule">
+@use "@/assets/scss/settings/colors.scss";
+
+.user-novels {
+    grid-area: novels;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    &__title {
+        font-size: x-large;
+        text-transform: capitalize;
+        color: $c-primary-darken;
+        
+        & small {
+            color: transparentize($c-primary-darken, .2);
+            font-size: medium;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            & {
+                color: $c-white;
+
+                & small {
+                    color: transparentize($c-grayscale-2,.2);
+                }
+            }
+        }
+    }
+
+    &__container {
+        padding: 8px 0;
+        width: 100%;
+    }
+
+    &__list {
+        overflow: scroll hidden;
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        margin: 0;
+        list-style: none;
+        gap: 8px;
+        width: max-content;
+        max-width: 100%;
+
+        &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            // background: linear-gradient(to right, );
+        }
+    }
+}
+</style>
