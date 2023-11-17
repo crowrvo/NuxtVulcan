@@ -7,9 +7,9 @@ const route = useRoute();
     </header>
 </template>
 <style lang="scss" module>
-@import "../assets/scss/colors";
+@use "@/assets/scss/settings/colors.scss";
 
-.page-header{
+.page-header {
     position: fixed;
     top: 0;
     width: 100%;
@@ -30,6 +30,16 @@ const route = useRoute();
         color: $c-primary-darken;
         margin: .25rem 0;
         user-select: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        & {
+            background: $c-dark-mode;
+
+            &__name {
+                color: $c-primary-lighten;
+            }
+        }
     }
 }
 </style>

@@ -11,7 +11,7 @@
     </aside>
 </template>
 <style lang="scss" module="sidebar">
-@import "../assets/scss/colors";
+@use "@/assets/scss/settings/colors.scss";
 
 .sidebar{
     position: fixed;

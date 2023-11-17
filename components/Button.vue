@@ -10,7 +10,7 @@ defineProps<{
     </button>
 </template>
 <style lang="scss" module="button">
-@import "../assets/scss/colors";
+@use "@/assets/scss/settings/colors.scss";
 
 .button {
     display: block;
