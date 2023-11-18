@@ -40,7 +40,7 @@ const announces = [{
 <template>
     <div :class="$style.container">
         <DashboardWelcomeUser name="Douglas" image-src="/images/placeholder.jpg" />
-        <!-- <DashboardAnnouncement :announces="announces" /> -->
+        <DashboardAnnouncement :announces="announces" />
         <DashboardNovels :novels="novels">Suas obras</DashboardNovels>
     </div>
 </template>
@@ -53,7 +53,7 @@ const announces = [{
     gap: 20px;
     grid-template-areas:
         "welcome-user welcome-user welcome-user welcome-user"
-        // "announcements announcements announcements announcements"
+        "announcements announcements announcements announcements"
         "novels novels novels novels";
 }
 </style>
