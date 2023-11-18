@@ -5,7 +5,9 @@ definePageMeta({
 </script>
 <template>
     <div :class="$style.container">
-        <img src="/images/brand/logo.png" alt="Montanha que é usada pela logo da Vulcan Scanlator" :class="$style.logo">
+        <ButtonLink to="/">
+            <img src="/images/brand/logo.png" alt="Montanha que é usada pela logo da Vulcan Scanlator" :class="$style.logo">
+        </ButtonLink>
         <LoginCard />
     </div>
 </template>
