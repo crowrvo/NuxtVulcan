@@ -1,11 +1,8 @@
 <script lang="ts" setup>
-withDefaults(defineProps<{
+defineProps<{
     name: string;
-    imageSrc?: string;
-}>(), {
-    name: "Usúario",
-    imageSrc: "/images/placeholder.jpg"
-});
+    imageSrc: string;
+}>();
 
 type notificationProps = {
     message: string;
@@ -61,10 +58,10 @@ const notifications: notificationProps[] = [{
         & p {
             margin: 4px 0 0;
             color: $c-grayscale-1;
-            font-size: 14px;
+            font-size: medium;
 
             & strong {
-                font-size: 20px;
+                font-size: x-large;
                 text-transform: uppercase;
                 color: $c-primary-darken;
                 font-weight: bold;
