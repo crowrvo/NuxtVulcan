@@ -15,6 +15,11 @@ body {
     font-family: "BAHNSCHRIFT";
     background-color: $c-background;
 }
+
+a {
+    text-decoration: none;
+}
+
 @media (prefers-color-scheme: dark){
     body {
         background: $c-dark;

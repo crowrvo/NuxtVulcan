@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-type novelInfo = {
+export type novelInfo = {
     name: string;
     workAs: string;
     views: number;

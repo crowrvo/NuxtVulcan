@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-type announces = {
+export type announcesProps = {
     url: string;
     backgroundUrl: string;
     title: string;
@@ -10,10 +10,10 @@ type announces = {
 }
 
 const props = defineProps<{
-    announces: announces[]
+    announces: announcesProps[]
 }>();
 
-type currentAnnounceProps = announces & {
+type currentAnnounceProps = announcesProps & {
     index: number
 }
 
@@ -26,32 +26,6 @@ const currentAnnounce: currentAnnounceProps = reactive({
     label: props.announces[0].label || "",
     index: 0
 });
-
-// const changeCurrentAnnounce = (announce: announces, prevIndex: number) => {
-    // const newAnnounce = props.announces.find((_, idx) => idx === prevIndex + 1);
-// 
-    // if (newAnnounce) {
-        // alert(newAnnounce.title);
-        // const newAnnounceIndex = props.announces.findIndex(announce => announce === newAnnounce);
-// 
-        // currentAnnounce.url = newAnnounce.url;
-        // currentAnnounce.alt = newAnnounce.alt;
-        // currentAnnounce.backgroundUrl = newAnnounce.backgroundUrl;
-        // currentAnnounce.label = newAnnounce.label;
-        // currentAnnounce.title = newAnnounce.title;
-        // currentAnnounce.index = newAnnounceIndex + 1;
-        // currentAnnounce.date = newAnnounce.date;
-        // currentAnnounce.hour = newAnnounce.hour;
-    // } else {
-        // currentAnnounce.url = props.announces[0].url || "#";
-        // currentAnnounce.backgroundUrl = props.announces[0].backgroundUrl || "";
-        // currentAnnounce.title = props.announces[0].title || "";
-        // currentAnnounce.label = props.announces[0].label || "";
-        // currentAnnounce.index = 0;
-        // currentAnnounce.date = props.announces[0].date || "";
-        // currentAnnounce.hour = props.announces[0].hour || "";
-    // }
-// }
 </script>
 <template>
     <div :class="card.cardAnnouncement">
