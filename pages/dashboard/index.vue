@@ -50,7 +50,7 @@ const announces = [{
     grid-auto-columns: 1fr;
     grid-auto-rows: minmax(140px, max-content);
     grid-auto-flow: column dense;
-    gap: 20px;
+    gap: 32px;
     grid-template-areas:
         "welcome-user welcome-user welcome-user welcome-user"
         "announcements announcements announcements announcements"

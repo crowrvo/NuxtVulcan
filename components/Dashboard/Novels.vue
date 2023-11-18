@@ -37,6 +37,7 @@ defineProps<{
     &__title {
         font-size: x-large;
         text-transform: capitalize;
+        margin: 0;
         color: $c-primary-darken;
         
         & small {
@@ -49,7 +50,7 @@ defineProps<{
                 color: $c-white;
 
                 & small {
-                    color: transparentize($c-grayscale-2,.2);
+                    color: $c-grayscale-2;
                 }
             }
         }
@@ -64,7 +65,7 @@ defineProps<{
         overflow: scroll hidden;
         display: flex;
         align-items: center;
-        padding: 12px;
+        padding: 10px;
         margin: 0;
         list-style: none;
         gap: 8px;
@@ -76,7 +77,7 @@ defineProps<{
             display: block;
             width: 100%;
             height: 100%;
-            // background: linear-gradient(to right, );
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.00) 1.06%, rgba(255, 255, 255, 0.50) 95.26%, #FFF 99.8%, #FFF 99.8%);
         }
     }
 }
