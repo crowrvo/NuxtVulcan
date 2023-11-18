@@ -20,7 +20,7 @@ const formateDate = (date: Date) => {
 <template>
     <div :class="$style.patroner">
         <span :class="$style.patronerContribuitionBadge">
-            {{ patroner.contribuitionValue.toFixed(2) }}
+            R$ {{ patroner.contribuitionValue.toFixed(2).replace(".", ",") }}
         </span>
         <div :class="$style.patronerInfo">
             <h4 :class="$style.patronerName">{{ patroner.name }}</h4>
@@ -99,7 +99,6 @@ const formateDate = (date: Date) => {
     & .see-details {
         display: block;
         padding: 8px;
-        outline: 1px solid $c-primary-darken;
         border-radius: 4px;
         text-decoration: none;
         text-align: center;

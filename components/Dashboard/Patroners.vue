@@ -52,7 +52,7 @@ const communityFilterActive = ref(false);
             <li :class="card.patronerCommunity">
                 <h3 :class="card.patronerTitle">Comunitários</h3>
                 <div :class="card.patronerContribuitionGoal">
-                    Meta definida - <span>R${{ donationsGoal.toFixed(2) }}</span>
+                    Meta definida - <span>R${{ donationsGoal.toFixed(2).replace(".", ",") }}</span>
                 </div>
                 <div>
                     <PatronerCard v-for="patroner in communityPatroners" :patroner="patroner"
