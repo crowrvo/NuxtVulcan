@@ -10,8 +10,6 @@ defineProps<{
     </button>
 </template>
 <style lang="scss" module="button">
-@use "@/assets/scss/settings/colors.scss";
-
 .button {
     display: block;
     text-align: center;

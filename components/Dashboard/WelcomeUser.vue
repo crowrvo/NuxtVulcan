@@ -37,8 +37,6 @@ const notifications: notificationProps[] = [{
     </div>
 </template>
 <style lang="scss" module="card">
-@use "@/assets/scss/settings/colors.scss";
-
 .welcome-user {
     grid-area: welcome-user;
     display: flex;

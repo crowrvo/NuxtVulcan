@@ -34,8 +34,6 @@ defineProps<{
     </div>
 </template>
 <style lang="scss" module="card">
-@use "@/assets/scss/settings/colors";
-
 .card-novel {
     display: flex;
     gap: 8px;

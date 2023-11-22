@@ -11,8 +11,6 @@
     </aside>
 </template>
 <style lang="scss" module="sidebar">
-@use "@/assets/scss/settings/colors.scss";
-
 .sidebar{
     position: fixed;
     top: 0;

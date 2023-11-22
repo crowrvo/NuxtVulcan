@@ -26,8 +26,6 @@ defineProps<{
     </div>
 </template>
 <style lang="scss" module="novelsModule">
-@use "@/assets/scss/settings/colors.scss";
-
 .user-novels {
     grid-area: novels;
     display: flex;

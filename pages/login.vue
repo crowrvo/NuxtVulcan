@@ -12,8 +12,6 @@ definePageMeta({
     </div>
 </template>
 <style lang="scss" module>
-@use "@/assets/scss/settings/colors";
-
 .container {
     min-height: 100vh;
     display: flex;
