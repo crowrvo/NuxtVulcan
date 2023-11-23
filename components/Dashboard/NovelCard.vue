@@ -43,7 +43,7 @@ defineProps<{
     height: 100%;
     padding: 5px 20px 5px 5px;
     background: $c-background;
-    box-shadow: 0 2px 4px transparentize($c-grayscale-1, .75);
+    box-shadow: 0 2px 4px adjust-color($c-grayscale-1, $alpha: .75);
     border-radius: 8px;
 
     &__contain-image {

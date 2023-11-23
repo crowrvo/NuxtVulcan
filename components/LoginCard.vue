@@ -25,16 +25,16 @@
     gap: 20px;
     max-width: 400px;
     border-radius: 8px;
-    background-color: transparentize($c-dark, .85);
+    background-color: adjust-color($c-dark, $alpha: .85);
     backdrop-filter: blur(4px);
-    box-shadow: 0 2px 8px transparentize($c-dark, .70);
+    box-shadow: 0 2px 8px adjust-color($c-dark, $alpha: .70);
 
     &__title {
         font-size: x-large;
         font-weight: bold;
         text-align: center;
         color: $c-grayscale-2;
-        text-shadow: 0 0 2px transparentize($c-dark, .5);
+        text-shadow: 0 0 2px adjust-color($c-dark, $alpha: .5);
 
         & span {
             color: $c-primary;
@@ -60,8 +60,8 @@
                 width: 100%;
                 min-height: 1.5rem;
                 padding: 8px;
-                box-shadow: inset 0 2px 4px transparentize($c-background, .7);
-                background-color: transparentize($c-grayscale-2, .8);
+                box-shadow: inset 0 2px 4px adjust-color($c-background, $alpha: .7);
+                background-color: adjust-color($c-grayscale-2, $alpha: .8);
                 border-radius: 8px;
                 border: none;
                 color: $c-primary-lighten;
@@ -81,7 +81,7 @@
         margin: 8px 0;
         font-weight: bold;
         text-align: center;
-        text-shadow: 0 0 2px transparentize($c-dark, .5);
+        text-shadow: 0 0 2px adjust-color($c-dark, $alpha: .5);
     }
 
     @media (prefers-color-scheme: dark) {

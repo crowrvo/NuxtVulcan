@@ -7,10 +7,8 @@ const route = useRoute();
     </header>
 </template>
 <style lang="scss" module>
-@use "@/assets/scss/settings/colors.scss";
-
 .page-header {
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 900;
@@ -28,7 +26,7 @@ const route = useRoute();
         text-transform: uppercase;
         font-weight: 300;
         color: $c-primary-darken;
-        margin: .25rem 0;
+        margin: 0;
         user-select: none;
     }
 

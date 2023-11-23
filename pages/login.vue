@@ -1,6 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
-    layout: "log"
+    layout: "log",
+    name: "Login"
 });
 </script>
 <template>

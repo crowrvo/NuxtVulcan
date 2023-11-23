@@ -81,7 +81,7 @@ const currentAnnounce: currentAnnounceProps = reactive({
             display: block;
             width: 20%;
             height: 6px;
-            background-color: transparentize($c-primary, .4);
+            background-color: adjust-color($c-primary, $alpha: .4);
             border-radius: 8px;
 
             &[class*="active"] {

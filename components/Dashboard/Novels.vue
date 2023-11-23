@@ -39,7 +39,7 @@ defineProps<{
         color: $c-primary-darken;
         
         & small {
-            color: transparentize($c-primary-darken, .2);
+            color: adjust-color($c-primary-darken, $alpha: .2);
             font-size: medium;
         }
 

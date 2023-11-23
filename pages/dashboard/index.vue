@@ -79,5 +79,6 @@ const patroners: PatronerProps[] = [{
         "announcements announcements announcements announcements"
         "novels novels novels novels"
         "patroners patroners patroners patroners";
+    padding: 1rem;
 }
 </style>
