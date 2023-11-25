@@ -1,11 +1,14 @@
 <script lang="ts" setup>
 const route = useRoute();
+defineProps<{
+    toggleTheme?: string;
+}>();
 </script>
 <template>
     <header :class="$style.pageHeader">
         <h1 :class="$style.pageHeaderName">{{ route.name }}</h1>
         <div :class="$style.pageSettings">
-            <ToggleDarkMode />
+            <ToggleDarkMode :theme="toggleTheme" />
         </div>
     </header>
 </template>

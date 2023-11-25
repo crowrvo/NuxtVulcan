@@ -1,5 +1,5 @@
 <template>
-    <PageHeader />
+    <PageHeader toggle-theme="primary" />
     <main :class="$style.mainContent">
         <slot></slot>
     </main>

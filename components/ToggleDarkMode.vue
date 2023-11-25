@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { useColorMode } from '@vueuse/core'
+import { useColorMode } from '@vueuse/core';
+import Icon from '~/utils/icon.vue';
+
+defineProps<{
+    theme?: string;
+}>();
 
 const mode = useColorMode({
     attribute: "theme",
@@ -9,12 +14,12 @@ const mode = useColorMode({
 })
 </script>
 <template>
-    <div :class="toggle.toggleDarkMode">
-        <!-- .Moon -->
+    <div :class="[toggle.toggleDarkMode, {'theme-primary': theme && theme === 'primary'}]" >
+        <Icon icon="sun" />
         <div :class="toggle.toggle">
-            <div :class="{'dark-mode': mode === 'dark'}" @click="mode = mode === 'dark' ? 'light' : 'dark'"></div>
+            <div :class="{ 'dark-mode': mode === 'dark' }" @click="mode = mode === 'dark' ? 'light' : 'dark'"></div>
         </div>
-        <!-- Sun -->
+        <Icon icon="moon" />
     </div>
 </template>
 <style lang="scss" module="toggle">
@@ -22,12 +27,23 @@ const mode = useColorMode({
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    gap: 12px;
     padding: 5px 10px;
-    min-width: 40px;
+    min-width: 50px;
     height: 40px;
     background: $c-dark-mode;
     border-radius: 8px;
     transition: background-color .8s ease-in;
+    color: $c-primary-lighten;
+
+    &[class*='theme-primary']{
+        color: $c-primary;
+    }
+
+    & i {
+        font-size: 22px;
+        display: block;
+    }
 
     & .toggle {
         position: relative;
@@ -35,21 +51,22 @@ const mode = useColorMode({
         border-radius: 20px;
         background: $c-primary-lighten;
         box-shadow: inset 0 2px 4px $c-primary-darken;
-        min-height: 30px;
+        height: 22px;
         min-width: 40px;
 
         & div {
             position: absolute;
             top: 2px;
-            right: 2px;
-            width: 28px;
-            height: 28px;
+            left: 2px;
+            width: 17px;
+            height: 17px;
             background: $c-white;
             border-radius: 50%;
             transition: all .8s ease;
 
             &[class*="dark-mode"] {
-                left: 2px;
+                left: auto;
+                right: 2px;
             }
         }
     }
@@ -58,6 +75,7 @@ const mode = useColorMode({
 html[theme*='dark'] {
     & .toggle-dark-mode {
         background: $c-dark;
+        color: $c-primary-lighten;
     }
 }
 </style>
