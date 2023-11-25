@@ -1,4 +1,56 @@
 @font-face {
-    font-family: BAHNSCHRIFT;
-    src: url("/fonts/BAHNSCHRIFT_3.TTF");
+  font-family: "BAHNSCHRIFT";
+  src: url("/fonts/BAHNSCHRIFT.ttf") format("truetype"); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+
+/* VULCAN ICONS */
+@font-face {
+  font-family: "vulcan";
+  src: url("/fonts/vulcan.eot");
+  src: url("/fonts/vulcan.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/vulcan.woff") format("woff"),
+    url("/fonts/vulcan.ttf") format("truetype"),
+    url("/fonts/vulcan.svg#vulcan") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class*="icon-"]:before {
+  display: inline-block;
+  font-family: "vulcan";
+  font-style: normal;
+  vertical-align: middle;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-gift:before {
+  content: "\0041";
+}
+.icon-moon:before {
+  content: "\0042";
+}
+.icon-pencil:before {
+  content: "\0043";
+}
+.icon-search:before {
+  content: "\0044";
+}
+.icon-star:before {
+  content: "\0045";
+}
+.icon-sun:before {
+  content: "\0046";
+}
+.icon-user:before {
+  content: "\0048";
+}
+.icon-article:before {
+  content: "\0049";
+}
+.icon-book:before {
+  content: "\004a";
+}
+.icon-eye:before {
+  content: "\004b";
 }
