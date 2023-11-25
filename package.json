@@ -18,6 +18,9 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@vueuse/core": "^10.6.1"
+    "@vueuse/core": "^10.6.1",
+    "@vueuse/integrations": "^10.6.1",
+    "sortablejs": "^1.15.0",
+    "useSortable": "link:@vueuse/integrations/useSortable"
   }
 }
