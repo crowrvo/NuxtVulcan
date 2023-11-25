@@ -21,7 +21,7 @@ $c-background: $c-white;
     --c-background: $c-background;
 }
 
-@media (prefers-color-scheme: dark){
+html[theme*='dark']{
     $c-background: $c-dark;
 
     :root{

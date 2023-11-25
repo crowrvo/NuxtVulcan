@@ -52,7 +52,7 @@ const communityFilterActive = ref(false);
             <li :class="card.patronerCommunity">
                 <h3 :class="card.patronerTitle">Comunitários</h3>
                 <div :class="card.patronerContribuitionGoal">
-                    Meta definida - <span>R${{ donationsGoal.toFixed(2).replace(".", ",") }}</span>
+                    Meta definida - <span>R$ {{ donationsGoal.toFixed(2).replace(".", ",") }}</span>
                 </div>
                 <div>
                     <PatronerCard v-for="patroner in communityPatroners" :patroner="patroner"
@@ -79,12 +79,6 @@ const communityFilterActive = ref(false);
         text-transform: capitalize;
         margin: 0;
         color: $c-primary-darken;
-
-        @media (prefers-color-scheme: dark) {
-            & {
-                color: $c-grayscale-2;
-            }
-        }
     }
 
     &__filter {
@@ -106,23 +100,6 @@ const communityFilterActive = ref(false);
                 background-color: $c-primary-darken;
                 color: $c-white;
             }
-
-            @media (prefers-color-scheme: dark) {
-                & {
-                    color: $c-primary-lighten;
-
-                    &[class*="active"] {
-                        background: $c-primary-lighten;
-                        color: $c-primary-darken;
-                    }
-                }
-            }
-        }
-
-        @media (prefers-color-scheme: dark) {
-            & {
-                border-bottom: 1px solid $c-primary-lighten;
-            }
         }
     }
 
@@ -143,17 +120,6 @@ const communityFilterActive = ref(false);
             padding: 4px;
             border-radius: 2px;
         }
-
-        @media (prefers-color-scheme: dark) {
-            & {
-                background: $c-primary-lighten;
-                color: $c-primary-darken;
-
-                & span {
-                    border: 1px solid $c-primary-darken;
-                }
-            }
-        }
     }
 
     &__list {
@@ -170,16 +136,6 @@ const communityFilterActive = ref(false);
         & li>p {
             color: $c-primary-darken;
             text-align: center;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            & {
-                scrollbar-color: $c-primary-lighten;
-
-                & li>p {
-                    color: $c-primary-lighten;
-                }
-            }
         }
 
         &.split {
@@ -206,12 +162,6 @@ const communityFilterActive = ref(false);
                     color: $c-primary-darken;
                     text-align: center;
                 }
-
-                @media (prefers-color-scheme: dark) {
-                    & div>p {
-                        color: $c-primary-lighten;
-                    }
-                }
             }
 
             & .patroner-direct .see-more {
@@ -234,18 +184,61 @@ const communityFilterActive = ref(false);
             background: $c-primary-darken;
             color: $c-primary-lighten;
         }
+    }
+}
 
-        @media (prefers-color-scheme: dark) {
-            & {
+html[theme*='dark'] {
+    & .patroner {
+        &__title {
+            color: $c-grayscale-2;
+        }
+
+        &__filter div {
+            // border-bottom: 1px solid $c-primary-lighten;
+            color: $c-primary-lighten;
+
+            &[class*="active"] {
+                background: $c-primary-lighten;
                 color: $c-primary-darken;
-                font-weight: 600;
-                background: $c-primary;
+            }
+        }
 
-                &:hover,
-                &:active {
-                    background: $c-primary-lighten;
-                    color: $c-primary-darken;
+        &__contribuition-goal {
+            background: $c-primary-lighten;
+            color: $c-primary-darken;
+
+            & span {
+                border: 1px solid $c-primary-darken;
+            }
+        }
+
+        &__list {
+            scrollbar-color: $c-primary-lighten;
+
+            & li>p {
+                color: $c-primary-lighten;
+            }
+
+            &.split {
+
+                & .patroner-direct,
+                & .patroner-community {
+                    & div>p {
+                        color: $c-primary-lighten;
+                    }
                 }
+            }
+        }
+
+        & .see-more {
+            color: $c-primary-darken;
+            font-weight: 600;
+            background: $c-primary;
+
+            &:hover,
+            &:active {
+                background: $c-primary-lighten;
+                color: $c-primary-darken;
             }
         }
     }

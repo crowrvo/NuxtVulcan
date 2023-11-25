@@ -10,6 +10,7 @@ definePageMeta({
             <img src="/images/brand/logo.png" alt="Montanha que é usada pela logo da Vulcan Scanlator" :class="$style.logo">
         </ButtonLink>
         <LoginCard />
+        <ToggleDarkMode />
     </div>
 </template>
 <style lang="scss" module>

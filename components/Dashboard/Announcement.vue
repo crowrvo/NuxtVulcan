@@ -37,11 +37,6 @@ const currentAnnounce: currentAnnounceProps = reactive({
                 <img v-else :src="announce.backgroundUrl" :alt="announce.alt"
                     :class="[card.cardAnnouncementImage, { active: announce === currentAnnounce }]">
             </ButtonLink>
-            <!-- <div :class="card.cardAnnouncementSelector"> -->
-            <!-- <span v-for="announce, id in announces" -->
-            <!-- :class="{ active: announces[0] === announce && announce === currentAnnounce }" :key="announce.url" -->
-            <!-- @click="changeCurrentAnnounce(announce, id)"></span> -->
-            <!-- </div> -->
         </div>
         <div :class="card.cardAnnouncementInfo">
             <h3>{{ currentAnnounce.title }}</h3>
@@ -120,6 +115,7 @@ const currentAnnounce: currentAnnounceProps = reactive({
             margin: 0 0 8px;
             font-size: large;
             font-weight: bold;
+            border-bottom: 2px solid $c-primary-darken;
         }
 
         & p {
@@ -136,9 +132,19 @@ const currentAnnounce: currentAnnounceProps = reactive({
             display: block;
             text-align: right;
         }
+    }
+}
 
-        @media (prefers-color-scheme: dark) {
-            & {
+html[theme*='dark'] {
+    & .card-announcement {
+        &__info {
+            color: $c-primary-lighten;
+
+            & h3 {
+                border-bottom: 2px solid $c-primary-lighten;
+            }
+
+            & span {
                 color: $c-grayscale-2;
             }
         }

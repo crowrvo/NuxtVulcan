@@ -4,6 +4,9 @@ const route = useRoute();
 <template>
     <header :class="$style.pageHeader">
         <h1 :class="$style.pageHeaderName">{{ route.name }}</h1>
+        <div :class="$style.pageSettings">
+            <ToggleDarkMode />
+        </div>
     </header>
 </template>
 <style lang="scss" module>
@@ -12,31 +15,53 @@ const route = useRoute();
     top: 0;
     width: 100%;
     z-index: 900;
-    display: grid;
-    grid-auto-columns: repeat(12, 1fr);
+    display: flex;
     align-items: center;
-    place-content: center;
+    justify-content: center;
     min-height: 60px;
     background: $c-background;
     box-shadow: 0 0px 12px -5px $c-dark;
 
     &__name {
-        font-size: xx-large;
+        font-size: medium;
+        font-size: calc(1rem + 4svh);
         text-align: center;
         text-transform: uppercase;
         font-weight: 300;
         color: $c-primary-darken;
         margin: 0;
         user-select: none;
-    }
 
-    @media (prefers-color-scheme: dark) {
-        & {
-            background: $c-dark-mode;
-
-            &__name {
-                color: $c-primary-lighten;
+        @media screen and (max-width: 1080px) and (orientation: portrait) {
+            & {
+                font-size: calc(1rem + 1svh);
             }
+        }
+    }
+}
+
+html[theme*='dark'] {
+    & .page-header {
+        background: $c-dark-mode !important;
+
+        &__name {
+            color: $c-primary-lighten !important;
+        }
+    }
+}
+
+.page-settings {
+    justify-self: end;
+
+    &>div {
+        background: transparent
+    }
+}
+
+html[theme*='dark'] {
+    & .page-settings {
+        &>div {
+            background: transparent
         }
     }
 }

@@ -37,20 +37,10 @@ defineProps<{
         text-transform: capitalize;
         margin: 0;
         color: $c-primary-darken;
-        
+
         & small {
             color: adjust-color($c-primary-darken, $alpha: .2);
             font-size: medium;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            & {
-                color: $c-white;
-
-                & small {
-                    color: $c-grayscale-2;
-                }
-            }
         }
     }
 
@@ -76,6 +66,18 @@ defineProps<{
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, rgba(255, 255, 255, 0.00) 1.06%, rgba(255, 255, 255, 0.50) 95.26%, #FFF 99.8%, #FFF 99.8%);
+        }
+    }
+}
+
+html[theme*='dark'] {
+    & .user-novels {
+        &__title {
+            color: $c-white;
+
+            & small {
+                color: $c-grayscale-2;
+            }
         }
     }
 }

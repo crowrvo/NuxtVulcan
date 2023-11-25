@@ -64,16 +64,6 @@ const notifications: notificationProps[] = [{
                 color: $c-primary-darken;
                 font-weight: bold;
             }
-
-            @media (prefers-color-scheme: dark){
-                & {
-                    color: $c-grayscale-2;
-
-                    & strong {
-                        color: $c-primary;
-                    }
-                }
-            }
         }
     }
 
@@ -94,16 +84,6 @@ const notifications: notificationProps[] = [{
             height: 2px;
             background-color: $c-primary-darken;
             border-radius: 8px;
-        }
-
-        @media (prefers-color-scheme: dark){
-            & {
-                color: $c-grayscale-2;
-
-                &::before {
-                    background: $c-grayscale-2;
-                }
-            }
         }
     }
 
@@ -130,12 +110,6 @@ const notifications: notificationProps[] = [{
             padding: 0 0 4px;
             gap: 4px;
         }
-        
-        @media (prefers-color-scheme: dark){
-            & {
-                color: $c-grayscale-2;
-            }
-        }
     }
 
     &__notification-manage {
@@ -149,18 +123,36 @@ const notifications: notificationProps[] = [{
             background: none;
             font-weight: 500;
             color: $c-primary-darken;
-            
-            @media (prefers-color-scheme: dark){
-                & {
-                    color: $c-primary;
-                }
-            }
         }
     }
+}
 
-    @media (prefers-color-scheme: dark){
-        & {
-            background: $c-dark-mode;
+html[theme*='dark'] {
+    & .welcome-user {
+        background: $c-dark-mode;
+
+        &__head {
+            color: $c-grayscale-2;
+
+            & strong {
+                color: $c-primary;
+            }
+        }
+
+        &__title {
+            color: $c-grayscale-2;
+
+            &::before {
+                background: $c-grayscale-2;
+            }
+        }
+
+        &__notification {
+            color: $c-grayscale-2;
+        }
+
+        &__notification-manage button {
+            color: $c-primary;
         }
     }
 }

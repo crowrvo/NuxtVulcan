@@ -5,23 +5,23 @@
 // @use "mixins/*.scss";
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    min-height: 100svh;
-    width: 100vw;
-    overflow: hidden scroll;
-    font-family: "BAHNSCHRIFT";
-    background-color: $c-background;
+  min-height: 100svh;
+  width: 100vw;
+  overflow: hidden scroll;
+  font-family: "BAHNSCHRIFT";
+  background-color: $c-background;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark){
-    body {
-        background: $c-dark;
-    }
+html[theme*="dark"] {
+  body {
+    background: $c-dark;
+  }
 }

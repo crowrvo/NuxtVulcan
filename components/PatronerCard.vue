@@ -47,13 +47,6 @@ const formateDate = (date: Date) => {
         color: $c-dark-mode;
         font-size: medium;
         border-radius: 4px;
-
-        @media (prefers-color-scheme: dark) {
-            & {
-                background: $c-primary-lighten;
-                color: $c-primary-darken;
-            }
-        }
     }
 
     &__info {
@@ -63,13 +56,6 @@ const formateDate = (date: Date) => {
         border-left: 1px solid $c-dark-mode;
         color: $c-dark-mode;
         padding: 0 20px;
-
-        @media (prefers-color-scheme: dark) {
-            & {
-                border-left: 1px solid $c-primary-lighten;
-                color: $c-white;
-            }
-        }
     }
 
     &__name {
@@ -87,12 +73,6 @@ const formateDate = (date: Date) => {
             color: $c-primary-darken;
             text-decoration: none;
             font-weight: 600;
-
-            @media (prefers-color-scheme: dark) {
-                & {
-                    color: $c-primary;
-                }
-            }
         }
     }
 
@@ -110,11 +90,31 @@ const formateDate = (date: Date) => {
             background: $c-primary-darken;
             color: $c-primary-lighten;
         }
+    }
+}
 
-        @media (prefers-color-scheme: dark) {
-            & {
-                background: $c-primary;
+html[theme*='dark'] {
+    & .patroner {
+        &__contribuition-badge {
+            background: $c-primary-lighten;
+            color: $c-primary-darken;
+        }
+
+        &__info {
+            border-left: 1px solid $c-primary-lighten;
+            color: $c-white;
+        }
+
+        &__contribuition-data {
+            color: $c-primary;
+
+            & a {
+                color: $c-primary-lighten;
             }
+        }
+
+        & .see-details {
+            background: $c-primary;
 
             &:hover,
             &:active {

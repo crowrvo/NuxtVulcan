@@ -43,7 +43,7 @@ defineProps<{
     height: 100%;
     padding: 5px 20px 5px 5px;
     background: $c-background;
-    box-shadow: 0 2px 4px adjust-color($c-grayscale-1, $alpha: .75);
+    box-shadow: 0 2px 4px adjust-color($c-grayscale-1, $alpha: -.35);
     border-radius: 8px;
 
     &__contain-image {
@@ -54,7 +54,6 @@ defineProps<{
     }
 
     &__image {
-        // aspect-ratio: 9/16;
         display: block;
         object-fit: cover;
         width: 100%;
@@ -75,23 +74,11 @@ defineProps<{
         font-size: medium;
         color: $c-primary-darken;
         margin: 0;
-
-        @media (prefers-color-scheme: dark) {
-            & {
-                color: $c-white;
-            }
-        }
     }
 
     &__work {
         font-size: small;
         color: $c-grayscale-1;
-
-        @media (prefers-color-scheme: dark) {
-            & {
-                color: $c-grayscale-2;
-            }
-        }
     }
 
     &__data {
@@ -104,23 +91,11 @@ defineProps<{
             display: block;
             font-size: small;
             color: $c-primary-darken;
-
-            @media (prefers-color-scheme: dark) {
-                & {
-                    color: $c-primary;
-                }
-            }
         }
 
         & strong {
             color: $c-grayscale-1;
             font-weight: normal;
-
-            @media (prefers-color-scheme: dark) {
-                & {
-                    color: $c-grayscale-2;
-                }
-            }
         }
     }
 
@@ -160,12 +135,47 @@ defineProps<{
                     outline: .5px solid $c-primary-darken;
                 }
             }
+        }
+    }
+}
 
-            @media (prefers-color-scheme: dark) {
-                & {
-                    background-color: $c-white;
-                    color: $c-primary-darken;
-                }
+html[theme*='dark'] {
+    & .card-novel {
+        background-color: $c-dark-mode;
+
+        &__name {
+            color: $c-white;
+        }
+
+        &__work {
+            color: $c-grayscale-2;
+        }
+
+        &__data {
+            & span {
+                color: $c-primary;
+            }
+            & strong {
+                color: $c-grayscale-2;
+            }
+        }
+
+        &__actions button {
+            background-color: $c-dark-mode;
+            outline: .5px solid $c-primary-lighten;
+            color: $c-primary-lighten;
+
+            &:hover,
+            &:active {
+                background: $c-primary-lighten;
+                color: $c-primary-darken;
+                outline: none;
+            }
+
+            &.add {
+                background-color: $c-primary;
+                color: $c-primary-darken;
+                outline: none;
 
                 &:hover,
                 &:active {
@@ -173,25 +183,7 @@ defineProps<{
                     color: $c-primary-darken;
                     outline: none;
                 }
-
-                &.add {
-                    background-color: $c-primary;
-                    color: $c-primary-darken;
-
-                    &:hover,
-                    &:active {
-                        background: $c-primary-lighten;
-                        color: $c-primary-darken;
-                        outline: none;
-                    }
-                }
             }
-        }
-    }
-
-    @media (prefers-color-scheme: dark) {
-        & {
-            background-color: $c-dark-mode;
         }
     }
 }
