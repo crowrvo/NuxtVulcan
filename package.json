@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxt/image": "^1.1.0",
     "nuxt": "^3.8.2",
     "sass": "^1.69.5",
     "vite-plugin-sass-glob-import": "^2.0.0",

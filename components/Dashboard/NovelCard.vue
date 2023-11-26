@@ -16,7 +16,7 @@ defineProps<{
 <template>
     <div :class="card.cardNovel">
         <ButtonLink :to="novel.url" :class="card.cardNovelContainImage">
-            <img :src="novel.backgroundUrl" :class="card.cardNovelImage">
+            <NuxtImg :src="novel.backgroundUrl" :alt="novel.name" :class="card.cardNovelImage" format="avif"/>
         </ButtonLink>
         <div :class="card.cardNovelInfo">
             <h3 :class="card.cardNovelName">{{ novel.name }}</h3>

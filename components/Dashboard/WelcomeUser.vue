@@ -18,7 +18,7 @@ const notifications: notificationProps[] = [{
     <div :class="card.welcomeUser">
         <div :class="card.welcomeUserHead">
             <div :class="card.welcomeUserContainImage">
-                <img :src="imageSrc" :class="card.welcomeUserImage">
+                <NuxtImg :src="imageSrc" alt="Sua foto de perfil" :class="card.welcomeUserImage" format="avif"/>
             </div>
             <p>Olá,<br /> <strong>{{ name }}</strong></p>
         </div>

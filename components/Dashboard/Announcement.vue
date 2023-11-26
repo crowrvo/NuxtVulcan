@@ -32,10 +32,10 @@ const currentAnnounce: currentAnnounceProps = reactive({
         <div :class="card.cardAnnouncementAnnounce">
             <ButtonLink v-for="announce in announces" :to="announce.url" :key="announce.url"
                 :class="card.cardAnnouncementContainImage">
-                <img v-if="announce.url === currentAnnounce.url || announces[0] === announce" :src="announce.backgroundUrl"
-                    :alt="announce.alt" :class="[card.cardAnnouncementImage, 'active']">
-                <img v-else :src="announce.backgroundUrl" :alt="announce.alt"
-                    :class="[card.cardAnnouncementImage, { active: announce === currentAnnounce }]">
+                <NuxtImg v-if="announce.url === currentAnnounce.url || announces[0] === announce" :src="announce.backgroundUrl"
+                    :alt="announce.alt" :class="[card.cardAnnouncementImage, 'active']" format="avif"/>
+                <NuxtImg v-else :src="announce.backgroundUrl" :alt="announce.alt"
+                    :class="[card.cardAnnouncementImage, { active: announce === currentAnnounce }]" format="avif"/>
             </ButtonLink>
         </div>
         <div :class="card.cardAnnouncementInfo">

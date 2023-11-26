@@ -7,7 +7,7 @@ definePageMeta({
 <template>
     <div :class="$style.container">
         <ButtonLink to="/">
-            <img src="/images/brand/logo.png" alt="Montanha que é usada pela logo da Vulcan Scanlator" :class="$style.logo">
+            <NuxtImg src="/images/brand/logo.png" alt="Montanha da logo da Vulcan Scanlator" :class="$style.logo" format="avif" />
         </ButtonLink>
         <LoginCard />
         <ToggleDarkMode />
