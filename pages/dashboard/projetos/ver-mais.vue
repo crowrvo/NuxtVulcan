@@ -162,7 +162,7 @@ useSortable(seeMoreList.value, work.value.volumes, {
         display: flex;
         flex-direction: column;
         gap: 12px;
-        padding: 24px;
+        padding: 0 24px;
         height: 100%;
         border-left: 2px solid $c-dark;
 
@@ -171,7 +171,7 @@ useSortable(seeMoreList.value, work.value.volumes, {
         }
 
         @media screen and (max-width: 1024px) and (orientation: landscape) {
-            padding: 8px;
+            padding: 0 24px;
         }
     }
 
@@ -204,13 +204,16 @@ useSortable(seeMoreList.value, work.value.volumes, {
         gap: 4px;
 
         & p {
+            font-size: medium;
             font-weight: 600;
             color: $c-dark;
             margin: 0;
+            text-transform: uppercase;
 
             & span {
                 color: $c-primary-darken;
                 font-weight: 300;
+                text-transform: capitalize;
             }
         }
     }
@@ -221,7 +224,6 @@ useSortable(seeMoreList.value, work.value.volumes, {
         align-items: flex-start;
         gap: 20px;
         width: 100%;
-        max-height: fit-content;
         overflow: hidden scroll;
     }
 
