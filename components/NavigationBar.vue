@@ -1,25 +1,38 @@
 <script lang="ts" setup>
-type navigationElement = {
+import { useMediaQuery } from "@vueuse/core";
+import icon from "~/utils/icon.vue";
+
+export type navigationElement = {
     name: string;
     url: string;
     icon?: string;
+    hasTitle: boolean
 }
 
 defineProps<{
     navigations: navigationElement[],
     orientation?: "vertical" | "horizontal",
-    hasTitle: boolean
 }>()
 </script>
 <template>
     <!-- Horizontal -->
     <ul :class="navigation.navigationList" v-if="orientation === 'horizontal'">
         <li v-for="navigationLink in navigations">
-            <template v-if="!hasTitle">
-                <ButtonLink :to="navigationLink.url">{{ navigationLink.name }}</ButtonLink>
+            <template v-if="useMediaQuery('(min-width: 1080px)')">
+                <ButtonLink v-if="!navigationLink.hasTitle" :to="navigationLink.url">
+                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                </ButtonLink>
+                <ButtonLink v-else :to="navigationLink.url" :title="navigationLink.name">
+                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                </ButtonLink>
             </template>
             <template v-else>
-                <ButtonLink :to="navigationLink.url" :title="navigationLink.name">{{ navigationLink.name }}</ButtonLink>
+                <ButtonLink v-if="!navigationLink.hasTitle" :to="navigationLink.url">
+                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                </ButtonLink>
+                <ButtonLink v-else :to="navigationLink.url" :title="navigationLink.name">
+                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                </ButtonLink>
             </template>
         </li>
     </ul>
@@ -27,26 +40,38 @@ defineProps<{
     <!-- Vertical -->
     <ul :class="navigation.navigationListVertical" v-else>
         <li v-for="navigationLink in navigations">
-            <template v-if="!hasTitle">
-                <ButtonLink :to="navigationLink.url">{{ navigationLink.name }}</ButtonLink>
+            <template v-if="useMediaQuery('(min-width: 1080px)')">
+                <ButtonLink v-if="!navigationLink.hasTitle" :to="navigationLink.url">
+                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                </ButtonLink>
+                <ButtonLink v-else :to="navigationLink.url" :title="navigationLink.name">
+                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                </ButtonLink>
             </template>
             <template v-else>
-                <ButtonLink :to="navigationLink.url" :title="navigationLink.name">{{ navigationLink.name }}</ButtonLink>
+                <ButtonLink v-if="!navigationLink.hasTitle" :to="navigationLink.url">
+                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                </ButtonLink>
+                <ButtonLink v-else :to="navigationLink.url" :title="navigationLink.name">
+                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                </ButtonLink>
             </template>
         </li>
     </ul>
 </template>
 <style lang="scss" module="navigation">
 .navigation {
-    &__list {        
+    &__list {
         &_vertical {
             flex-direction: column;
             place-items: center;
         }
-        
-        &, &_vertical {
+
+        &,
+        &_vertical {
             display: flex;
             align-content: center;
+            width: 100%;
             gap: 4px;
             list-style: none;
             margin: 0;
@@ -56,15 +81,14 @@ defineProps<{
                 display: contents;
             }
 
-            a,
-            & NuxtLink {
+            & a {
                 display: block;
                 width: 100%;
-                font-weight: 500;
-                text-transform: uppercase;
+                font-size: 24px;
                 text-align: center;
-                padding: .75rem 1rem;
-                border-radius: 4px;
+                text-transform: uppercase;
+                padding: 4px 8px;
+                color: $c-primary-darken;
             }
         }
     }
