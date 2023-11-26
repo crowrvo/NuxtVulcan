@@ -18,6 +18,7 @@ logs
 .fleet
 .idea
 template
+.vscode
 
 # Local env files
 .env
