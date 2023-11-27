@@ -50,7 +50,7 @@ const mode = useColorMode({
         padding: 2px;
         border-radius: 20px;
         background: $c-primary-lighten;
-        box-shadow: inset 0 2px 4px adjust-color($c-primary-darken, -.4);
+        box-shadow: inset 0 2px 4px adjust-color($c-primary-darken, $alpha: -.4);
         height: 22px;
         min-width: 40px;
 
