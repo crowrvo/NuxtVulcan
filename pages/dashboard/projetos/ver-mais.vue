@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useSortable } from '@vueuse/integrations/useSortable';
+import icon from '~/utils/icon.vue';
 
 export type workProps = {
     name: string,
@@ -113,7 +114,7 @@ useSortable(seeMoreList.value, work.value.volumes, {
                             <p>Views: <span>{{ work.data.views }}</span></p>
                             <p>Capítulos: <span>{{ work.data.chapters }}</span></p>
                         </div>
-                        <ButtonLink :to="work.url">Página da obra</ButtonLink>
+                        <ButtonLink :to="work.url"><icon icon="eye" />Página da obra</ButtonLink>
                     </div>
                 </div>
             </div>
@@ -250,25 +251,15 @@ useSortable(seeMoreList.value, work.value.volumes, {
 
         & a {
             flex: 1 auto;
-            display: block;
+            display: flex;
+            justify-content: space-between;
+            gap: 4px;
             background: $c-primary;
             color: $c-primary-darken;
             border-radius: 4px;
-            padding: 4px 12px;
+            padding: 8px 12px;
             width: max-content;
             height: max-content;
-
-            &::before {
-                content: '\0044';
-                display: inline-block;
-                font-family: "vulcan";
-                font-style: normal;
-                vertical-align: middle;
-                font-weight: normal;
-                line-height: 1;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-            }
         }
     }
 
@@ -362,6 +353,7 @@ useSortable(seeMoreList.value, work.value.volumes, {
 }
 
 html[theme*='dark'] {
+    $c-primary-lighten: adjust-color($c-primary-lighten, $saturation: 30%, $lightness: -18%);
     & .see-more {
         background: $c-dark-mode;
 
@@ -391,7 +383,11 @@ html[theme*='dark'] {
         }
 
         & .title {
-            color: $c-primary-lighten
+            color: $c-primary-lighten;
+
+            & span {
+                color: adjust-color($c-primary-lighten, $saturation: 30%, $lightness: 10%)
+            }
         }
 
         &__list li {
