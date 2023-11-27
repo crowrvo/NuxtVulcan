@@ -1,4 +1,4 @@
+<script lang="ts" setup></script>
 <template>
-    <PageHeader />
     <slot></slot>
 </template>

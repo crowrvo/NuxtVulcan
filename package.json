@@ -11,10 +11,17 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "nuxt": "^3.8.1",
+    "@nuxt/image": "^1.1.0",
+    "nuxt": "^3.8.2",
     "sass": "^1.69.5",
     "vite-plugin-sass-glob-import": "^2.0.0",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.6.1",
+    "@vueuse/integrations": "^10.6.1",
+    "sortablejs": "^1.15.0",
+    "useSortable": "link:@vueuse/integrations/useSortable"
   }
 }

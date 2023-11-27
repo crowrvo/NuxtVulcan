@@ -1,2 +1,27 @@
-@import "settings/*.scss";
-@import "mixins/*.scss";
+@use "settings/fonts";
+@use "settings/colors";
+@use "settings/reset";
+@use "settings/variables";
+// @use "mixins/*.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100svh;
+  width: 100vw;
+  overflow: hidden scroll;
+  font-family: "BAHNSCHRIFT";
+  background-color: $c-background;
+}
+
+a {
+  text-decoration: none;
+}
+
+html[theme*="dark"] {
+  body {
+    background: $c-dark;
+  }
+}
