@@ -23,6 +23,7 @@ $c-background: $c-white;
 
 html[theme*='dark']{
     $c-background: $c-dark;
+    $c-primary: adjust-color($c-primary, $saturation: 20%, $lightness: -10%);
 
     :root{
         --c-background: $c-dark;
