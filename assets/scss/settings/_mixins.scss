@@ -5,3 +5,9 @@
     #{$kv}: #{$kv};
   }
 }
+
+@mixin resetList(){
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
