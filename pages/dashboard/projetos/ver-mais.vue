@@ -153,7 +153,7 @@ useSortable(seeMoreList.value, work.value.volumes, {
     width: 100%;
     padding: 16px;
     background: $c-white;
-    border-radius: 4px;
+    border-radius: map-get($border-radius, 'thin');;
     // box-shadow: 0 2px 4px adjust-color($c-grayscale-3, $alpha: .35);
     box-shadow: 0 2px 4px adjust-color($c-grayscale-3, $alpha: -.75);
     height: 80svh;
@@ -211,7 +211,7 @@ useSortable(seeMoreList.value, work.value.volumes, {
             height: 100%;
             max-height: 100%;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: map-get($border-radius, 'common');;
         }
 
         @media screen and (max-width: 1024px) and (orientation: portrait) {
@@ -225,14 +225,14 @@ useSortable(seeMoreList.value, work.value.volumes, {
     &__work-data {
         flex: 1 fit-content;
         display: flex;
-        gap: 8px;
+        gap: map-get($spacing, 'common-1');
 
         & div {
             flex: 1 1 auto;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
-            gap: 4px;
+            gap: map-get($spacing, 'min');
         }
 
         & p {
@@ -253,10 +253,10 @@ useSortable(seeMoreList.value, work.value.volumes, {
             flex: 1 auto;
             display: flex;
             justify-content: space-between;
-            gap: 4px;
+            gap: map-get($spacing, 'min');
             background: $c-primary;
             color: $c-primary-darken;
-            border-radius: 4px;
+            border-radius: map-get($border-radius, 'thin');;
             padding: 8px 12px;
             width: max-content;
             height: max-content;
@@ -276,7 +276,7 @@ useSortable(seeMoreList.value, work.value.volumes, {
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: map-get($spacing, 'common-1');
 
         & .title {
             color: adjust-color($c-primary-darken, $saturation: 20%, $lightness: 18%);
@@ -288,7 +288,7 @@ useSortable(seeMoreList.value, work.value.volumes, {
     &__list {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: map-get($spacing, 'common-1');
         margin: 0;
         padding: 4px 8px;
         list-style: none;
@@ -305,16 +305,15 @@ useSortable(seeMoreList.value, work.value.volumes, {
             color: $c-primary-darken;
             background-color: transparent;
             width: 100%;
-            // box-shadow: 0 0 4px adjust-color($c-primary-darken, $alpha: .4);
             box-shadow: 0 0 4px adjust-color($c-primary-darken, $alpha: -.60);
-            border-radius: 4px;
+            border-radius: map-get($border-radius, 'thin');;
         }
     }
 
     &__content-area {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: map-get($spacing, 'common-1');
 
         & p {
             font-weight: 300;
@@ -339,7 +338,7 @@ useSortable(seeMoreList.value, work.value.volumes, {
 .drag-bars {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: map-get($spacing, 'min');
     width: max-content;
     cursor: pointer;
 
@@ -347,19 +346,19 @@ useSortable(seeMoreList.value, work.value.volumes, {
         width: 28px;
         height: 100%;
         padding: 2px;
-        border-radius: 4px;
+        border-radius: map-get($border-radius, 'thin');;
         background-color: adjust-color($c-primary-darken, $lightness: 20%);
     }
 }
 
 html[theme*='dark'] {
-    $c-primary-lighten: adjust-color($c-primary-lighten, $saturation: 30%, $lightness: -18%);
+    $c-secundary: adjust-color($c-secundary, $saturation: 30%, $lightness: -18%);
     & .see-more {
         background: $c-dark-mode;
 
         &>.title {
-            color: $c-primary-lighten !important;
-            border-bottom: 2px solid $c-primary-lighten;
+            color: $c-secundary !important;
+            border-bottom: 2px solid $c-secundary;
         }
 
         &__serialization {
@@ -371,11 +370,11 @@ html[theme*='dark'] {
         }
 
         &__work-details {
-            border-left: 2px solid $c-primary-lighten;
+            border-left: 2px solid $c-secundary;
         }
 
         &__work-data p {
-            color: $c-primary-lighten;
+            color: $c-secundary;
 
             & span {
                 color: $c-primary;
@@ -383,29 +382,29 @@ html[theme*='dark'] {
         }
 
         & .title {
-            color: $c-primary-lighten;
+            color: $c-secundary;
 
             & span {
-                color: adjust-color($c-primary-lighten, $saturation: 30%, $lightness: 10%)
+                color: adjust-color($c-secundary, $saturation: 30%, $lightness: 10%)
             }
         }
 
         &__list li {
-            color: $c-primary-lighten;
-            box-shadow: 0 0 4px adjust-color($c-primary-lighten, $alpha: .4);
+            color: $c-secundary;
+            box-shadow: 0 0 4px adjust-color($c-secundary, $alpha: .4);
         }
 
         &__chapter-info {
-            color: $c-primary-lighten;
+            color: $c-secundary;
         }
     }
 
     & .title {
-        color: $c-primary-lighten;
+        color: $c-secundary;
     }
 
     & .drag-bars div {
-        background-color: $c-primary-lighten;
+        background-color: $c-secundary;
     }
 }
 </style>

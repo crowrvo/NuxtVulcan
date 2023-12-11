@@ -56,7 +56,7 @@ defineProps<{
         padding: 10px;
         margin: 0;
         list-style: none;
-        gap: 8px;
+        gap: map-get($spacing, 'common-1');
         width: max-content;
         max-width: 100%;
 

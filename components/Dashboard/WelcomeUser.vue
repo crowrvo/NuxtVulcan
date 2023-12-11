@@ -44,14 +44,14 @@ const notifications: notificationProps[] = [{
     place-content: flex-start;
     background: $c-background;
     height: max-content;
-    box-shadow: 0 0px 12px -5px $c-dark;
+    box-shadow: 0 0px 12px -5px $c-dark-mode;
     padding: 8px;
     gap: 1rem;
-    border-radius: 8px;
+    border-radius: map-get($border-radius, 'common');;
 
     &__head {
         display: flex;
-        gap: 8px;
+        gap: map-get($spacing, 'common-1');
 
         & p {
             margin: 4px 0 0;
@@ -70,7 +70,7 @@ const notifications: notificationProps[] = [{
     &__title {
         display: flex;
         align-items: center;
-        gap: 4px;
+        gap: map-get($spacing, 'min');
         color: $c-primary-darken;
         font-size: medium;
         font-weight: 600;
@@ -83,7 +83,7 @@ const notifications: notificationProps[] = [{
             width: 100%;
             height: 2px;
             background-color: $c-primary-darken;
-            border-radius: 8px;
+            border-radius: map-get($border-radius, 'common');;
         }
     }
 
@@ -93,13 +93,13 @@ const notifications: notificationProps[] = [{
         width: 100%;
         aspect-ratio: 4/4;
         object-fit: cover;
-        border-radius: 8px;
+        border-radius: map-get($border-radius, 'common');;
     }
 
     &__notification {
         display: flex;
         justify-content: space-between;
-        gap: 4px;
+        gap: map-get($spacing, 'min');
         padding: 4px;
         color: $c-primary-darken;
 
@@ -108,7 +108,7 @@ const notifications: notificationProps[] = [{
             display: flex;
             flex-direction: column;
             padding: 0 0 4px;
-            gap: 4px;
+            gap: map-get($spacing, 'min');
         }
     }
 
@@ -132,7 +132,9 @@ html[theme*='dark'] {
         background: $c-dark-mode;
 
         &__head {
-            color: $c-grayscale-2;
+            p {
+                color: adjust-color($c-grayscale-2, $lightness: -10%, $alpha: .7);
+            }
 
             & strong {
                 color: $c-primary;
@@ -142,7 +144,7 @@ html[theme*='dark'] {
         &__title {
             color: $c-grayscale-2;
 
-            &::before {
+            &::after {
                 background: $c-grayscale-2;
             }
         }

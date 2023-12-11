@@ -46,13 +46,13 @@ const formateDate = (date: Date) => {
         background: $c-grayscale-2;
         color: $c-dark-mode;
         font-size: medium;
-        border-radius: 4px;
+        border-radius: map-get($border-radius, 'thin');;
     }
 
     &__info {
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: map-get($spacing, 'min');
         border-left: 1px solid $c-dark-mode;
         color: $c-dark-mode;
         padding: 0 20px;
@@ -79,7 +79,7 @@ const formateDate = (date: Date) => {
     & .see-details {
         display: block;
         padding: 8px;
-        border-radius: 4px;
+        border-radius: map-get($border-radius, 'thin');;
         text-decoration: none;
         text-align: center;
         color: $c-primary-darken;
@@ -88,7 +88,7 @@ const formateDate = (date: Date) => {
         &:hover,
         &:active {
             background: $c-primary-darken;
-            color: $c-primary-lighten;
+            color: $c-secundary;
         }
     }
 }
@@ -96,12 +96,12 @@ const formateDate = (date: Date) => {
 html[theme*='dark'] {
     & .patroner {
         &__contribuition-badge {
-            background: $c-primary-lighten;
+            background: $c-secundary;
             color: $c-primary-darken;
         }
 
         &__info {
-            border-left: 1px solid $c-primary-lighten;
+            border-left: 1px solid $c-secundary;
             color: $c-white;
         }
 
@@ -109,7 +109,7 @@ html[theme*='dark'] {
             color: $c-primary;
 
             & a {
-                color: $c-primary-lighten;
+                color: $c-secundary;
             }
         }
 
@@ -118,7 +118,7 @@ html[theme*='dark'] {
 
             &:hover,
             &:active {
-                background: $c-primary-lighten;
+                background: $c-secundary;
                 color: $c-primary-darken;
             }
         }

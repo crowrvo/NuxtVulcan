@@ -36,7 +36,7 @@ defineProps<{
 <style lang="scss" module="card">
 .card-novel {
     display: flex;
-    gap: 8px;
+    gap: map-get($spacing, 'common-1');
     width: 100%;
     max-width: max-content;
     min-height: 90px;
@@ -44,7 +44,7 @@ defineProps<{
     padding: 5px 20px 5px 5px;
     background: $c-background;
     box-shadow: 0 2px 4px adjust-color($c-grayscale-1, $alpha: -.35);
-    border-radius: 8px;
+    border-radius: map-get($border-radius, 'common');;
 
     &__contain-image {
         display: block;
@@ -58,13 +58,13 @@ defineProps<{
         object-fit: cover;
         width: 100%;
         height: 100%;
-        border-radius: 8px;
+        border-radius: map-get($border-radius, 'common');;
     }
 
     &__info {
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: map-get($spacing, 'min');
         padding: .5rem 0;
     }
 
@@ -84,7 +84,7 @@ defineProps<{
     &__data {
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: map-get($spacing, 'min');
         padding: 4px 0;
 
         & span {
@@ -103,7 +103,7 @@ defineProps<{
         display: flex;
         align-items: center;
         padding: 8px 0;
-        gap: 4px;
+        gap: map-get($spacing, 'min');
         width: max-content;
 
         & button {
@@ -162,12 +162,12 @@ html[theme*='dark'] {
 
         &__actions button {
             background-color: $c-dark-mode;
-            outline: .5px solid $c-primary-lighten;
-            color: $c-primary-lighten;
+            outline: .5px solid $c-secundary;
+            color: $c-secundary;
 
             &:hover,
             &:active {
-                background: $c-primary-lighten;
+                background: $c-secundary;
                 color: $c-primary-darken;
                 outline: none;
             }
@@ -179,7 +179,7 @@ html[theme*='dark'] {
 
                 &:hover,
                 &:active {
-                    background: $c-primary-lighten;
+                    background: $c-secundary;
                     color: $c-primary-darken;
                     outline: none;
                 }

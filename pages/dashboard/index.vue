@@ -73,7 +73,7 @@ const patroners: PatronerProps[] = [{
     grid-auto-columns: 1fr;
     grid-auto-rows: minmax(140px, max-content);
     grid-auto-flow: column dense;
-    gap: 32px;
+    gap: map-get($spacing, 'biggest');
     grid-template-areas:
         "welcome-user welcome-user welcome-user welcome-user"
         "announcements announcements announcements announcements"

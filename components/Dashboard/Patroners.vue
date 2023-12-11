@@ -107,15 +107,15 @@ const communityFilterActive = ref(false);
         text-align: center;
         text-transform: capitalize;
         font-size: large;
-        color: $c-primary-lighten;
-        background: $c-primary-darken;
+        color: $c-secundary;
+        background: $c-dark-mode;
         width: 100%;
         max-width: 600px;
         padding: 8px 16px;
-        border-radius: 4px;
+        border-radius: map-get($border-radius, 'thin');;
 
         & span {
-            border: 1.5px solid $c-primary-lighten;
+            border: 1.5px solid $c-secundary;
             display: inline-block;
             padding: 4px;
             border-radius: 2px;
@@ -126,12 +126,10 @@ const communityFilterActive = ref(false);
         display: flex;
         align-items: center;
         flex-direction: column;
-        gap: 8px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
+        gap: map-get($spacing, 'common-1');
         width: 100%;
         min-height: 100px;
+        @include resetList();
 
         & li>p {
             color: $c-primary-darken;
@@ -150,7 +148,7 @@ const communityFilterActive = ref(false);
                 display: flex;
                 align-items: center;
                 flex-direction: column;
-                gap: 8px;
+                gap: map-get($spacing, 'common-1');
                 width: 100%;
                 min-height: 100px;
 
@@ -172,7 +170,7 @@ const communityFilterActive = ref(false);
 
     & .see-more {
         display: block;
-        border-radius: 4px;
+        border-radius: map-get($border-radius, 'thin');;
         background: $c-primary;
         padding: 8px 20px;
         color: $c-primary-darken;
@@ -182,7 +180,7 @@ const communityFilterActive = ref(false);
         &:hover,
         &:active {
             background: $c-primary-darken;
-            color: $c-primary-lighten;
+            color: $c-secundary;
         }
     }
 }
@@ -193,30 +191,35 @@ html[theme*='dark'] {
             color: $c-grayscale-2;
         }
 
-        &__filter div {
-            // border-bottom: 1px solid $c-primary-lighten;
-            color: $c-primary-lighten;
+        &__filter {
+            border-bottom: 1px solid $c-secundary;
 
-            &[class*="active"] {
-                background: $c-primary-lighten;
-                color: $c-primary-darken;
+            div {
+                color: $c-secundary;
+
+                &[class*="active"] {
+                    background: adjust-color($c-secundary, $lightness: -20%);
+                    color: $c-dark-mode;
+                }
             }
         }
 
         &__contribuition-goal {
-            background: $c-primary-lighten;
-            color: $c-primary-darken;
+            background: $c-secundary;
+            //color: $c-primary-darken;
+            color: $c-dark-mode;
 
             & span {
-                border: 1px solid $c-primary-darken;
+                //border: 1px solid $c-primary-darken;
+                border: 1px solid $c-dark-mode;
             }
         }
 
         &__list {
-            scrollbar-color: $c-primary-lighten;
+            scrollbar-color: $c-secundary;
 
             & li>p {
-                color: $c-primary-lighten;
+                color: $c-secundary;
             }
 
             &.split {
@@ -224,21 +227,21 @@ html[theme*='dark'] {
                 & .patroner-direct,
                 & .patroner-community {
                     & div>p {
-                        color: $c-primary-lighten;
+                        color: $c-secundary;
                     }
                 }
             }
         }
 
         & .see-more {
-            color: $c-primary-darken;
+            color: $c-dark-mode;
             font-weight: 600;
-            background: $c-primary;
+            background: $c-secundary;
 
             &:hover,
             &:active {
-                background: $c-primary-lighten;
-                color: $c-primary-darken;
+                background: adjust-color($c-secundary, $lightness: -20%);
+                //color: $c-primary-darken;
             }
         }
     }
