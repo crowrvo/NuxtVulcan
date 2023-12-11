@@ -1,5 +1,5 @@
 // === Patterns for pallete. === /
-$pallete: (
+$-pallete: (
   type: "pallete",
   primary: #69CDDE,
   primary-darken: #000D30,
@@ -16,19 +16,19 @@ $pallete: (
 
 
 
-$c-primary: map-get($pallete, primary);
-$c-primary-darken: map-get($pallete, primary-darken);
-$c-secundary: map-get($pallete, secundary);
-$c-dark: map-get($pallete, brand-ultra-dark);
-$c-dark-mode: map-get($pallete, brand-dark);
-$c-warn: map-get($pallete, warn);
-$c-white: map-get($pallete, brand-white);
-$c-grayscale-1: map-get($pallete, grayscale-1);
-$c-grayscale-2: map-get($pallete, grayscale-2);
-$c-grayscale-3: map-get($pallete, grayscale-3);
+$c-primary: map-get($-pallete, primary);
+$c-primary-darken: map-get($-pallete, primary-darken);
+$c-secundary: map-get($-pallete, secundary);
+$c-dark: map-get($-pallete, brand-ultra-dark);
+$c-dark-mode: map-get($-pallete, brand-dark);
+$c-warn: map-get($-pallete, warn);
+$c-white: map-get($-pallete, brand-white);
+$c-grayscale-1: map-get($-pallete, grayscale-1);
+$c-grayscale-2: map-get($-pallete, grayscale-2);
+$c-grayscale-3: map-get($-pallete, grayscale-3);
 $c-background: $c-white;
 
 html[theme*="dark"] {
-    $c-background: $c-dark;
-    $c-primary: adjust-color($c-primary, $saturation: 20%, $lightness: -10%);
+  $c-background: $c-dark;
+  $c-primary: adjust-color($c-primary, $saturation: 20%, $lightness: -10%);
 }
