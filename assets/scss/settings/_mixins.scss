@@ -1,0 +1,7 @@
+@use "./variables" as *;
+
+@mixin useTitleFormat() {
+  @each $kv in map-get($typography, "title") {
+    #{$kv}: #{$kv};
+  }
+}

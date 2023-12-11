@@ -1,0 +1,75 @@
+@use './colors';
+
+// === Patterns for border. === /
+$border: (
+  type: "border",
+  thin-primary: 1px solid colors.$c-primary,
+  thin-primary-darken: 1px solid colors.$c-primary-darken,
+  thin-secundary: 1px solid colors.$c-secundary,
+);
+
+// === Patterns for border-radius. === /
+$border-radius: (
+  type: "border-radius",
+  thin: 4px,
+  common: 8px,
+);
+
+// === Patterns for size. === /
+$sizing: (
+  type: "sizing",
+  small: 12px,
+  smaller: 10px,
+  normal: 16px,
+  medium: 20px,
+  large: 24px,
+  x-large: 28px,
+  xx-large: 32px,
+);
+
+// === Patterns for spacing. === /
+$spacing: (
+  type: "spacing",
+  min: 4px,
+  common-1: 8px,
+  common-2: 12px,
+  common-3: 24px,
+  big: 32px,
+  bigger: 42px,
+  biggest: 64px,
+);
+
+// === Patterns for opacity. === /
+$opacity: (
+  type: "opacity",
+  min-transparence: 0.3,
+  intermediary-transparence: 0.5,
+  placeholders: .7
+);
+
+// === Patterns for box-shadow. === /
+$box-shadow: (
+  type: "boxShadow",
+  Inside-fields: inset 0 2px 4px rgba(27, 27, 27, 0.3),
+);
+
+// === Patterns for font-size. === /
+$font-size: (
+  text-smaller: 10px,
+  text-small: 12px,
+  text-normal: 16px,
+  text-medium: 22px,
+  text-large: 28px,
+  text-largest: 32px,
+);
+
+// === Patterns for typography. === /
+$typography: (
+  title: (
+    font-weight: bold,
+    font-size: 24px,
+    line-height: 1.5,
+    text-transform: uppercase,
+    margin: 0
+  ),
+);

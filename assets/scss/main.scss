@@ -2,7 +2,7 @@
 @use "settings/colors";
 @use "settings/reset";
 @use "settings/variables";
-// @use "mixins/*.scss";
+@use "settings/mixins";
 
 * {
   box-sizing: border-box;
