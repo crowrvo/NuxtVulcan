@@ -1,5 +1,3 @@
-import sassGlobImports from 'vite-plugin-sass-glob-import';
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: {
@@ -11,13 +9,10 @@ export default defineNuxtConfig({
   },
 
   vite: {
-    plugins: [
-      sassGlobImports()
-    ],
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "@/assets/scss/settings/variables" as *;@use "@/assets/scss/settings/colors" as *;@use "@/assets/scss/settings/mixins" as *;',
+          additionalData: '@use "./scss/settings/imports" as *;',
         },
       },
       modules: {
@@ -27,6 +22,6 @@ export default defineNuxtConfig({
     }
   },
 
-  css: ["~/assets/scss/main.scss"],
+  css: ["~/scss/main.scss"],
   modules: ["@nuxt/image"]
 })
