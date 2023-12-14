@@ -26,7 +26,7 @@ const route = useRoute();
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: map-get($spacing, 'common-3');
     z-index: 900;
     width: 100%;
     height: 60px;
@@ -37,7 +37,7 @@ const route = useRoute();
     &__menu {
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: map-get($spacing, 'min');
         height: 24px;
         width: 34px;
 
@@ -45,7 +45,7 @@ const route = useRoute();
             flex: 1 1 auto;
             min-height: 2px;
             background: $c-primary-darken;
-            border-radius: 4px;
+            border-radius: map-get($border-radius, 'thin');;
         }
     }
 
@@ -80,11 +80,11 @@ html[theme*='dark'] {
         background: $c-dark-mode;
 
         &__menu div {
-            background: $c-primary-lighten;
+            background: $c-secundary;
         }
 
         &__name {
-            color: $c-primary-lighten;
+            color: $c-secundary;
         }
     }
 }

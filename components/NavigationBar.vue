@@ -72,10 +72,8 @@ defineProps<{
             display: flex;
             align-content: center;
             width: 100%;
-            gap: 4px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
+            gap: map-get($spacing, 'min');
+            @include resetList();
 
             & li {
                 display: contents;

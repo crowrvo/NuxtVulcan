@@ -27,14 +27,14 @@ const mode = useColorMode({
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    gap: 12px;
+    gap: map-get($spacing, 'common-2');
     padding: 5px 10px;
     min-width: 50px;
     height: 40px;
     background: $c-dark-mode;
-    border-radius: 8px;
+    border-radius: map-get($border-radius, 'common');;
     transition: background-color .8s ease-in;
-    color: $c-primary-lighten;
+    color: $c-secundary;
 
     &[class*='theme-primary']{
         color: $c-primary;
@@ -49,8 +49,8 @@ const mode = useColorMode({
         position: relative;
         padding: 2px;
         border-radius: 20px;
-        background: $c-primary-lighten;
-        box-shadow: inset 0 2px 4px adjust-color($c-primary-darken, -.4);
+        background: $c-secundary;
+        box-shadow: inset 0 2px 4px adjust-color($c-primary-darken, $alpha: -.4);
         height: 22px;
         min-width: 40px;
 
@@ -75,7 +75,7 @@ const mode = useColorMode({
 html[theme*='dark'] {
     & .toggle-dark-mode {
         background: $c-dark;
-        color: $c-primary-lighten;
+        color: $c-secundary;
     }
 }
 </style>

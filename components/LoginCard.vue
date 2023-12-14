@@ -22,18 +22,19 @@
     padding: 20px 40px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: map-get($spacing, 'common-3');
     max-width: 400px;
-    border-radius: 8px;
+    border-radius: map-get($border-radius, 'common');;
     background-color: adjust-color($c-dark, $alpha: -.3);
     backdrop-filter: blur(4px);
     box-shadow: 0 2px 8px adjust-color($c-dark, $alpha: -.3);
     transition: background-color 500ms ease-in;
 
     &__title {
-        font-size: x-large;
+        font-size: map-get($font-size, 'text-large');
         font-weight: bold;
         text-align: center;
+        line-height: map-get($typography, 'title','line-height');
         color: $c-grayscale-2;
         text-shadow: 0 0 2px adjust-color($c-dark, $alpha: .5);
 
@@ -45,15 +46,16 @@
     &__form {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: map-get($spacing, 'common-2');
 
         & label {
             display: flex;
             flex-direction: column;
-            gap: 4px;
-            font-size: medium;
+            gap: map-get($spacing, 'min');
+            font-size: map-get($font-size, 'text-normal');
             font-weight: 600;
             color: $c-grayscale-2;
+            text-transform: capitalize;
 
             & input {
                 appearance: none;
@@ -63,21 +65,21 @@
                 padding: 8px;
                 box-shadow: inset 0 2px 4px adjust-color($c-background, $alpha: -.3);
                 background-color: adjust-color($c-grayscale-2, $alpha: -.2);
-                border-radius: 8px;
+                border-radius: map-get($border-radius, 'common');;
                 border: none;
-                color: $c-primary-lighten;
+                color: $c-secundary;
             }
         }
 
         & fieldset {
             border: none;
             margin: 8px 0;
-            border-top: .5px solid $c-primary-darken;
+            border-top: 1px solid $c-primary-darken;
         }
     }
 
     & p {
-        font-size: large;
+        font-size: map-get($font-size, 'text-medium');
         color: $c-grayscale-2;
         margin: 8px 0;
         font-weight: bold;

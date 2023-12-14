@@ -49,16 +49,16 @@ const currentAnnounce: currentAnnounceProps = reactive({
 .card-announcement {
     grid-area: announcements;
     display: flex;
-    box-shadow: 0 0 12px -5px $c-dark;
+    box-shadow: 0 0 12px -5px $c-dark-mode;
     padding: 1rem;
     gap: 1rem;
-    border-radius: 8px;
+    border-radius: map-get($border-radius, 'common');;
 
     &__announce {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr auto;
-        gap: 8px;
+        gap: map-get($spacing, 'common-1');
         width: 100%;
         height: max-content;
     }
@@ -66,7 +66,7 @@ const currentAnnounce: currentAnnounceProps = reactive({
     &__selector {
         grid-row: 2/2;
         display: flex;
-        gap: 12px;
+        gap: map-get($spacing, 'common-2');
         align-items: center;
         justify-content: center;
         width: 100%;
@@ -77,7 +77,7 @@ const currentAnnounce: currentAnnounceProps = reactive({
             width: 20%;
             height: 6px;
             background-color: adjust-color($c-primary, $alpha: .4);
-            border-radius: 8px;
+            border-radius: map-get($border-radius, 'common');;
 
             &[class*="active"] {
                 background-color: $c-primary;
@@ -99,7 +99,7 @@ const currentAnnounce: currentAnnounceProps = reactive({
         max-height: 100%;
         object-fit: cover;
         margin: 0;
-        border-radius: 8px;
+        border-radius: map-get($border-radius, 'common');;
 
         &[class*="active"] {
             display: block;
@@ -138,10 +138,10 @@ const currentAnnounce: currentAnnounceProps = reactive({
 html[theme*='dark'] {
     & .card-announcement {
         &__info {
-            color: $c-primary-lighten;
+            color: $c-secundary;
 
             & h3 {
-                border-bottom: 2px solid $c-primary-lighten;
+                border-bottom: 2px solid $c-secundary;
             }
 
             & span {

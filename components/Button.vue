@@ -17,6 +17,6 @@ defineProps<{
     color: $c-primary-darken;
     padding: .5em;
     border: none;
-    border-radius: 4px;
+    border-radius: map-get($border-radius, 'thin');;
 }
 </style>

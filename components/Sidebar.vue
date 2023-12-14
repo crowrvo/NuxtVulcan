@@ -17,27 +17,30 @@ const navigations: navigationElement[] = [
         url: '/dashboard',
         icon: 'article', //icon: 'home',
         hasTitle: true
-    }, {
-        name: 'Estatísticas',
-        url: '/dashboard/estatisticas',
-        icon: 'article', //icon: 'charts',
-        hasTitle: true
-    }, {
-        name: 'Adicionar obra',
-        url: '/dashboard/projetos/adicionar',
-        icon: 'book',
-        hasTitle: true
-    }, {
-        name: 'Usuários',
-        url: '/dashboard/usuarios',
-        icon: 'user',
-        hasTitle: true
-    }, {
-        name: 'Doações',
-        url: '/dashboard/estatisticas/doacoes',
-        icon: 'gift',
-        hasTitle: true
-    }]
+    },
+    //  {
+    // name: 'Estatísticas',
+    // url: '/dashboard/estatisticas',
+    // icon: 'article', //icon: 'charts',
+    // hasTitle: true
+    // },
+    //  {
+    // name: 'Adicionar obra',
+    // url: '/dashboard/projetos/adicionar',
+    // icon: 'book',
+    // hasTitle: true
+    // }, {
+    // name: 'Usuários',
+    // url: '/dashboard/usuarios',
+    // icon: 'user',
+    // hasTitle: true
+    // }, {
+    // name: 'Doações',
+    // url: '/dashboard/estatisticas/doacoes',
+    // icon: 'gift',
+    // hasTitle: true
+    // }
+]
 
 const shortNavigation: { url: string, name: string }[] = [{
     name: 'início',
@@ -53,7 +56,7 @@ const isMobile = useMediaQuery('(max-width: 1080px)')
     <aside :class="[sidebar.sidebar, { visible: visible, mobile: isMobile }]">
         <div :class="sidebar.container">
             <NavigationBar :navigations="navigations" orientation="vertical" />
-            <ButtonLink to="/dashboard/configuracoes">
+            <ButtonLink to="/dashboard/">
                 <icon icon="eye" />
             </ButtonLink>
         </div>
@@ -61,7 +64,7 @@ const isMobile = useMediaQuery('(max-width: 1080px)')
             <div :class="sidebar.mobileNavigationHead">
                 <div :class="sidebar.mobileNavigationContainImage">
                     <ButtonLink to="/">
-                        <NuxtImg src="/images/brand/logo.png" format="avif" 
+                        <NuxtImg src="/images/brand/logo.png" format="avif"
                             alt="Montanha que representa a logo da Vulcan Scanlator" placeholder />
                     </ButtonLink>
                 </div>
@@ -85,7 +88,7 @@ const isMobile = useMediaQuery('(max-width: 1080px)')
 .sidebar {
     position: fixed;
     top: 60px;
-    left: -50vw;
+    left: -100dvw;
     bottom: 0px;
     min-width: min(12svw, 60px);
     max-width: 15vw;
@@ -115,17 +118,18 @@ const isMobile = useMediaQuery('(max-width: 1080px)')
         flex-direction: row;
         max-width: 34vw;
 
-        & + .container {
+        &+.container {
             padding: 0;
         }
 
         & .mobile-navigation {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: map-get($spacing, 'common-2');
             border-left: 1px solid $c-primary-darken;
             min-width: 230px;
-            
+            background: $c-background;
+
             &__head {
                 display: flex;
                 align-items: center;
@@ -143,7 +147,7 @@ const isMobile = useMediaQuery('(max-width: 1080px)')
             &__contain-image {
                 height: 40px;
                 width: 40px;
-                
+
                 & a {
                     display: block;
                     height: 100%;
@@ -171,10 +175,8 @@ const isMobile = useMediaQuery('(max-width: 1080px)')
                     display: flex;
                     flex-direction: column;
                     width: 100%;
-                    gap: 8px;
-                    margin: 0;
-                    padding: 0;
-                    list-style: none;
+                    gap: map-get($spacing, 'common-1');
+                    @include resetList();
 
                     & li a {
                         display: block;
@@ -210,14 +212,15 @@ html[theme*='dark'] {
         background: $c-dark-mode;
 
         & a {
-            color: $c-primary-lighten;
+            color: $c-secundary;
         }
 
         &[class*='mobile'] {
 
             & .mobile-navigation {
-                border-left: 1px solid $c-dark;
- 
+                border-left: 1px solid $c-secundary;
+                background: $c-dark-mode;
+
                 &__head {
                     background-color: $c-primary;
 
@@ -226,14 +229,14 @@ html[theme*='dark'] {
                     }
 
                     & button {
-                        color: $c-dark;
+                        color: $c-dark-mode;
                     }
                 }
 
                 &__navigation-list a {
                     background-color: transparent;
-                    color: $c-primary-lighten;
-                    outline: 1px solid $c-primary-lighten;
+                    color: $c-secundary;
+                    outline: 1px solid $c-secundary;
 
                     &:hover,
                     &:active {

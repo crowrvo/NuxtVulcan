@@ -1,14 +1,17 @@
+<script lang="ts" setup>
+definePageMeta({
+  layout: 'dashboard',
+  name: 'Dashboard'
+})
+</script>
+
 <template>
   <div>
     <h1>Dev Test</h1>
   </div>
 </template>
 
-<script lang="ts" setup>
 
-</script>
 
-<style lang="postcss">
-
-</style>
+<style lang="postcss"></style>
 

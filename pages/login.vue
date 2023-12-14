@@ -10,7 +10,7 @@ definePageMeta({
             <NuxtImg src="/images/brand/logo.png" alt="Montanha da logo da Vulcan Scanlator" :class="$style.logo" format="avif" />
         </ButtonLink>
         <LoginCard />
-        <ToggleDarkMode />
+        <Toggledark-modeMode />
     </div>
 </template>
 <style lang="scss" module>
@@ -20,7 +20,7 @@ definePageMeta({
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 32px;
+    gap: map-get($spacing, 'big');
     background-image: url("/images/background.jpg");
     background-size: cover;
     background-position: center center;
