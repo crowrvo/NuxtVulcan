@@ -1,7 +1,6 @@
 @mixin useTitleFormat($title) {
   @each $key, $value in $title {
     #{$key}: $value;
-    @debug #{$key} \: $value;
   }
 }
 
@@ -9,4 +8,11 @@
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+@mixin resetBoxModel(){
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
 }
