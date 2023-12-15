@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import Icon from '~/utils/icon.vue';
 defineProps<{
     icon?: string
 }>();
@@ -11,12 +10,14 @@ defineProps<{
 </template>
 <style lang="scss" module="button">
 .button {
-    display: block;
+    display: flex;
+    gap: map-get($spacing, 'min');
     text-align: center;
+    font-weight: 500;
     background-color: $c-primary;
     color: $c-primary-darken;
-    padding: .5em;
+    padding: .25em .5em;
     border: none;
-    border-radius: map-get($border-radius, 'thin');;
+    border-radius: map-get($border-radius, 'thin');
 }
 </style>
