@@ -127,7 +127,7 @@ const currentAnnounce: currentAnnounceProps = reactive({
         }
 
         & span {
-            font-weight: medium;
+            font-weight: 500;
             font-size: small;
             display: block;
             text-align: right;

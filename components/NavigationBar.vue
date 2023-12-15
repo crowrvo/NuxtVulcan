@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useMediaQuery } from "@vueuse/core";
-import icon from "~/utils/icon.vue";
 
 export type navigationElement = {
     name: string;
@@ -20,18 +19,18 @@ defineProps<{
         <li v-for="navigationLink in navigations">
             <template v-if="useMediaQuery('(min-width: 1080px)')">
                 <ButtonLink v-if="!navigationLink.hasTitle" :to="navigationLink.url">
-                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                    <Icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
                 </ButtonLink>
                 <ButtonLink v-else :to="navigationLink.url" :title="navigationLink.name">
-                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                    <Icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
                 </ButtonLink>
             </template>
             <template v-else>
                 <ButtonLink v-if="!navigationLink.hasTitle" :to="navigationLink.url">
-                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                    <Icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
                 </ButtonLink>
                 <ButtonLink v-else :to="navigationLink.url" :title="navigationLink.name">
-                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                    <Icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
                 </ButtonLink>
             </template>
         </li>
@@ -42,18 +41,18 @@ defineProps<{
         <li v-for="navigationLink in navigations">
             <template v-if="useMediaQuery('(min-width: 1080px)')">
                 <ButtonLink v-if="!navigationLink.hasTitle" :to="navigationLink.url">
-                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                    <Icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
                 </ButtonLink>
                 <ButtonLink v-else :to="navigationLink.url" :title="navigationLink.name">
-                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                    <Icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
                 </ButtonLink>
             </template>
             <template v-else>
                 <ButtonLink v-if="!navigationLink.hasTitle" :to="navigationLink.url">
-                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                    <Icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
                 </ButtonLink>
                 <ButtonLink v-else :to="navigationLink.url" :title="navigationLink.name">
-                    <icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
+                    <Icon v-if="navigationLink.icon" :icon="navigationLink.icon" />
                 </ButtonLink>
             </template>
         </li>

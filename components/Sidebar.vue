@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { useMediaQuery } from '@vueuse/core';
 import type { navigationElement } from './NavigationBar.vue';
-import icon from '~/utils/icon.vue';
 
 defineEmits(['toggle-sidebar']);
 
@@ -57,7 +56,7 @@ const isMobile = useMediaQuery('(max-width: 1080px)')
         <div :class="sidebar.container">
             <NavigationBar :navigations="navigations" orientation="vertical" />
             <ButtonLink to="/dashboard/">
-                <icon icon="eye" />
+                <Icon icon="eye" />
             </ButtonLink>
         </div>
         <div :class="sidebar.mobileNavigation" v-if="isMobile">
@@ -69,7 +68,7 @@ const isMobile = useMediaQuery('(max-width: 1080px)')
                     </ButtonLink>
                 </div>
                 <Button @click="$emit('toggle-sidebar')">
-                    <icon icon="eye" />
+                    <Icon icon="eye" />
                 </Button>
             </div>
             <div :class="sidebar.mobileNavigationNavigation">
