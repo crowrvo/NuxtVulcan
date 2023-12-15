@@ -1,4 +1,4 @@
-@use './colors';
+@use "./colors";
 
 // === Patterns for border. === /
 $border: (
@@ -44,13 +44,21 @@ $opacity: (
   type: "opacity",
   min-transparence: 0.3,
   intermediary-transparence: 0.5,
-  placeholders: .7
+  placeholders: 0.7,
 );
 
 // === Patterns for box-shadow. === /
 $box-shadow: (
   type: "boxShadow",
-  Inside-fields: inset 0 2px 4px rgba(27, 27, 27, 0.3),
+  inside-fields: inset 0 2px 4px adjust-color($c-dark, $alpha: -0.7),
+  inside-fields-large: inset 2px 2px 4px
+  adjust-color($c-dark, $alpha: -0.7),
+  "inside-fields_dark-mode": inset 0px 2px 4px
+    adjust-color($c-secundary, $alpha: -0.7),
+  "inside-fields-large_dark-mode": inset 2px 2px 4px
+    adjust-color($c-secundary, $alpha: -0.7),
+  soft-confirm: 0 2px 4px adjust-color($c-primary-darken, $alpha: -0.7),
+  soft-cancel: 0 2px 4px adjust-color($c-warn, $alpha: -0.7),
 );
 
 // === Patterns for font-size. === /
@@ -63,6 +71,16 @@ $font-size: (
   text-largest: 32px,
 );
 
+// === Patterns for font-size responsive. === /
+$font-size-responsive: (
+  text-smaller: min(10px, x-small),
+  text-small: min(12px, small),
+  text-normal: clamp(14px, 16px, 1.5vw),
+  text-medium: clamp(18px, 22px, 4vw),
+  text-large: clamp(24px, 28px, 3.5vw),
+  text-largest: clamp(32px, 36px, 5.5vw),
+);
+
 // === Patterns for typography. === /
 $typography: (
   title: (
@@ -70,6 +88,6 @@ $typography: (
     font-size: 24px,
     line-height: 1.5,
     text-transform: uppercase,
-    margin: 0
+    margin: 0,
   ),
 );
