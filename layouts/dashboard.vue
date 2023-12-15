@@ -18,7 +18,7 @@ watch(activeElement, element => {
 
 </script>
 <template>
-    <PageHeader toggle-theme="primary" @toggle-sidebar="() => sidebarVisible = !sidebarVisible" />
+    <PageHeader @toggle-sidebar="() => sidebarVisible = !sidebarVisible" />
     <main ref="content" :class="[$style.mainContent, {minimize: minimizeContent}]">
         <slot></slot>
     </main>

@@ -1,23 +1,16 @@
 <script setup lang="ts">
-import { useColorMode } from '@vueuse/core';
-import Icon from '~/utils/icon.vue';
+import { useDark, useToggle } from '@vueuse/core';
 
-defineProps<{
-    theme?: string;
-}>();
-
-const mode = useColorMode({
+const isDark = useDark({
     attribute: "theme",
-    modes: {
-        contrast: 'contrast'
-    }
 })
+const toggleDarkMode = useToggle(isDark)
 </script>
 <template>
-    <div :class="[toggle.toggleDarkMode, {'theme-primary': theme && theme === 'primary'}]" >
+    <div :class="toggle.toggleDarkMode" >
         <Icon icon="sun" />
-        <div :class="toggle.toggle">
-            <div :class="{ 'dark-mode': mode === 'dark' }" @click="mode = mode === 'dark' ? 'light' : 'dark'"></div>
+        <div :class="[toggle.toggle, {'dark-mode': isDark }]" @click="toggleDarkMode()">
+            <div></div>
         </div>
         <Icon icon="moon" />
     </div>
@@ -32,13 +25,9 @@ const mode = useColorMode({
     min-width: 50px;
     height: 40px;
     background: $c-dark-mode;
-    border-radius: map-get($border-radius, 'common');;
+    border-radius: map-get($border-radius, 'common');
     transition: background-color .8s ease-in;
     color: $c-secundary;
-
-    &[class*='theme-primary']{
-        color: $c-primary;
-    }
 
     & i {
         font-size: 22px;
@@ -46,28 +35,28 @@ const mode = useColorMode({
     }
 
     & .toggle {
-        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
         padding: 2px;
         border-radius: 20px;
-        background: $c-secundary;
-        box-shadow: inset 0 2px 4px adjust-color($c-primary-darken, $alpha: -.4);
-        height: 22px;
+        background: adjust-color($c-secundary, $lightness: 10%);
+        box-shadow: map-get($box-shadow, 'inside-fields');
+        min-height: 22px;
         min-width: 40px;
-
+        transition: justify-content .8s ease;
+        
         & div {
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 17px;
-            height: 17px;
-            background: $c-white;
+            width: 16px;
+            height: 16px;
+            background: adjust-color($c-white, $alpha: -.1);
             border-radius: 50%;
-            transition: all .8s ease;
+            border: 1px solid $c-white;
+        }
 
-            &[class*="dark-mode"] {
-                left: auto;
-                right: 2px;
-            }
+        &[class*="dark-mode"] {
+            justify-content: flex-end;
+            box-shadow: map-get($box-shadow, 'inside-fields_dark-mode');
         }
     }
 }
@@ -76,6 +65,10 @@ html[theme*='dark'] {
     & .toggle-dark-mode {
         background: $c-dark;
         color: $c-secundary;
+
+        & .toggle {
+            background: adjust-color($c-secundary, $lightness: -10%);
+        }
     }
 }
 </style>
