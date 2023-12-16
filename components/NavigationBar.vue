@@ -1,15 +1,9 @@
 <script lang="ts" setup>
 import { useMediaQuery } from "@vueuse/core";
-
-export type navigationElement = {
-    name: string;
-    url: string;
-    icon?: string;
-    hasTitle: boolean
-}
+import type { fullNavigationData } from "~/mock/routes";
 
 defineProps<{
-    navigations: navigationElement[],
+    navigations: Array<fullNavigationData>,
     orientation?: "vertical" | "horizontal",
 }>()
 </script>

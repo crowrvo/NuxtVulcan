@@ -1,18 +1,11 @@
 <script lang="ts" setup>
+import { mockNotifications } from '~/mock/notifications';
+
 defineProps<{
     name: string;
     imageSrc: string;
 }>();
 
-type notificationProps = {
-    message: string;
-    date: string
-}
-
-const notifications: notificationProps[] = [{
-    message: "Mensagem de teste",
-    date: `${new Date().getDay()}/${new Date().getMonth()}/${new Date().getFullYear()}`
-}]
 </script>
 <template>
     <div :class="card.welcomeUser">
@@ -24,7 +17,7 @@ const notifications: notificationProps[] = [{
         </div>
         <div :class="card.welcomeUserNotificationList">
             <span :class="card.welcomeUserTitle">Notificações</span>
-            <span :class="card.welcomeUserNotification" v-for="notification in notifications">
+            <span :class="card.welcomeUserNotification" v-for="notification in mockNotifications">
                 {{ notification.message }}
                 <time>{{ notification.date }}</time>
                 <!-- icone para deletar a notificação -->

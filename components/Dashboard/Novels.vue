@@ -1,16 +1,8 @@
 <script lang="ts" setup>
-export type novelInfo = {
-    name: string;
-    workAs: string;
-    views: number;
-    chapters: number;
-    comments: number;
-    url: string;
-    backgroundUrl: string;
-}
+import type { bookPresentationDetailedInfo } from '~/types/DTOs/books';
 
 defineProps<{
-    novels: novelInfo[];
+    novels: Array<Omit<bookPresentationDetailedInfo, "author">>;
 }>()
 </script>
 <template>

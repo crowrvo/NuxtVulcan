@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useMediaQuery } from '@vueuse/core';
-import type { navigationElement } from './NavigationBar.vue';
+import { routes } from '~/mock/routes';
+import type { basicNavigationInfo } from '~/mock/routes';
 
 defineEmits(['toggle-sidebar']);
 
@@ -10,38 +11,8 @@ withDefaults(defineProps<{
     visible: false
 })
 
-const navigations: navigationElement[] = [
-    {
-        name: 'Início',
-        url: '/dashboard',
-        icon: 'article', //icon: 'home',
-        hasTitle: true
-    },
-    //  {
-    // name: 'Estatísticas',
-    // url: '/dashboard/estatisticas',
-    // icon: 'article', //icon: 'charts',
-    // hasTitle: true
-    // },
-    //  {
-    // name: 'Adicionar obra',
-    // url: '/dashboard/projetos/adicionar',
-    // icon: 'book',
-    // hasTitle: true
-    // }, {
-    // name: 'Usuários',
-    // url: '/dashboard/usuarios',
-    // icon: 'user',
-    // hasTitle: true
-    // }, {
-    // name: 'Doações',
-    // url: '/dashboard/estatisticas/doacoes',
-    // icon: 'gift',
-    // hasTitle: true
-    // }
-]
 
-const shortNavigation: { url: string, name: string }[] = [{
+const basicRoutes: Array<basicNavigationInfo> = [{
     name: 'início',
     url: '/dashboard'
 }, {
@@ -49,12 +20,12 @@ const shortNavigation: { url: string, name: string }[] = [{
     url: '/dashboard/projetos'
 }]
 
-const isMobile = useMediaQuery('(max-width: 1080px)')
+const isMobile = useMediaQuery('(max-width: 1080px)');
 </script>
 <template>
     <aside :class="[sidebar.sidebar, { visible: visible, mobile: isMobile }]">
         <div :class="sidebar.container">
-            <NavigationBar :navigations="navigations" orientation="vertical" />
+            <NavigationBar :navigations="routes" orientation="vertical" />
             <ButtonLink to="/dashboard/">
                 <Icon icon="eye" />
             </ButtonLink>
@@ -64,7 +35,7 @@ const isMobile = useMediaQuery('(max-width: 1080px)')
                 <div :class="sidebar.mobileNavigationContainImage">
                     <ButtonLink to="/">
                         <NuxtImg src="/images/brand/logo.png" format="avif"
-                            alt="Montanha que representa a logo da Vulcan Scanlator" placeholder />
+                            alt="Logo marca da Vulcan Scanlator" placeholder />
                     </ButtonLink>
                 </div>
                 <Button @click="$emit('toggle-sidebar')">
@@ -74,8 +45,8 @@ const isMobile = useMediaQuery('(max-width: 1080px)')
             <div :class="sidebar.mobileNavigationNavigation">
                 <nav>
                     <ul :class="sidebar.mobileNavigationNavigationList">
-                        <li v-for="navigation in shortNavigation">
-                            <ButtonLink :to="navigation.url">{{ navigation.name }}</ButtonLink>
+                        <li v-for="route in basicRoutes">
+                            <ButtonLink :to="route.url">{{ route.name }}</ButtonLink>
                         </li>
                     </ul>
                 </nav>

@@ -1,16 +1,8 @@
 <script lang="ts" setup>
-type novelInfo = {
-    name: string;
-    workAs: string;
-    views: number;
-    chapters: number;
-    comments: number;
-    url: string;
-    backgroundUrl: string;
-}
+import type { bookPresentationDetailedInfo } from '~/types/DTOs/books';
 
 defineProps<{
-    novel: novelInfo;
+    novel: Omit<bookPresentationDetailedInfo, "author">;
 }>();
 </script>
 <template>
@@ -20,11 +12,11 @@ defineProps<{
         </ButtonLink>
         <div :class="card.cardNovelInfo">
             <h3 :class="card.cardNovelName">{{ novel.name }}</h3>
-            <span :class="card.cardNovelWork">{{ novel.workAs }}</span>
+            <span :class="card.cardNovelWork">{{ novel.worker.workAs }}</span>
             <div :class="card.cardNovelData">
-                <span><strong>Views</strong>: {{ novel.views }}</span>
-                <span><strong>Capítulos</strong>: {{ novel.chapters }}</span>
-                <span><strong>Comentários</strong>: {{ novel.comments }}</span>
+                <span><strong>Views</strong>: {{ novel.data.views }}</span>
+                <span><strong>Capítulos</strong>: {{ novel.data.chapters }}</span>
+                <span><strong>Comentários</strong>: {{ novel.data.comments }}</span>
             </div>
             <div :class="card.cardNovelActions">
                 <Button :class="card.add">Adicionar capítulos</Button>

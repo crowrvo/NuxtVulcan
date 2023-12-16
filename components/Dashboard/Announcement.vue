@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts">
 export type announcesProps = {
     url: string;
     backgroundUrl: string;
@@ -7,8 +7,10 @@ export type announcesProps = {
     date: string;
     hour: string;
     alt?: string;
-}
+};
+</script>
 
+<script lang="ts" setup>
 const props = defineProps<{
     announces: announcesProps[]
 }>();
