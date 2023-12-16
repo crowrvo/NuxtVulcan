@@ -1,28 +1,27 @@
 <script lang="ts" setup>
+import type { bookProps } from '~/types/DTOs/books';
 import { useSortable } from '@vueuse/integrations/useSortable';
+import { mockBook } from '~/mock/books';
 
-import type { workProps } from '~/mock/works';
-import { mockWork } from '~/mock/works';
-
-const work = toRef<workProps>(mockWork);
+const book = toRef<bookProps>(mockBook);
 
 definePageMeta({
     layout: "dashboard",
     name: "Ver mais"
-})
+});
 
 const seeMoreList = ref<HTMLElement>();
-useSortable(seeMoreList, work.value.volumes, {
+useSortable(seeMoreList, book.value.volumes, {
     animation: 150,
-})
+});
 </script>
 <template>
     <div :class="$style.container">
         <div :class="$style.seeMore">
-            <h1 :class="$style.title">{{ work.name }}</h1>
+            <h1 :class="$style.title">{{ book.name }}</h1>
             <div :class="$style.seeMoreSerialization">
-                <div :class="$style.seeMoreWorkInfo">
-                    <div :class="$style.seeMoreWorkVolume" v-for="volume in work.volumes">
+                <div :class="$style.seeMoreBookInfo">
+                    <div :class="$style.seeMoreBookVolume" v-for="volume in book.volumes">
                         <h2 :class="$style.title">Volume {{ volume.number }} - <span>{{ volume.name }}</span></h2>
                         <ul :class="$style.seeMoreList" ref="seeMoreList">
                             <li v-for="chapter in volume.chapters" :key="chapter.number">
@@ -42,18 +41,20 @@ useSortable(seeMoreList, work.value.volumes, {
                         </ul>
                     </div>
                 </div>
-                <div :class="$style.seeMoreWorkDetails">
+                <div :class="$style.seeMoreBookDetails">
                     <div :class="$style.seeMoreContainImage">
-                        <ButtonLink :to="work.url">
-                            <NuxtImg :src="work.imageUrl" :alt="work.name" />
+                        <ButtonLink :to="book.url">
+                            <NuxtImg :src="book.backgroundUrl" :alt="book.name" />
                         </ButtonLink>
                     </div>
-                    <div :class="$style.seeMoreWorkData">
+                    <div :class="$style.seeMoreBookData">
                         <div>
-                            <p>Views: <span>{{ work.data.views }}</span></p>
-                            <p>Capítulos: <span>{{ work.data.chapters }}</span></p>
+                            <p>Views: <span>{{ book.data.views }}</span></p>
+                            <p>Capítulos: <span>{{ book.data.chapters }}</span></p>
+                            <p>Comentários: <span>{{ book.data.comments }}</span></p>
+                            <p v-if="book.data.author">Capítulos: <span>{{ book.data.author }}</span></p>
                         </div>
-                        <ButtonLink :to="work.url"><Icon icon="eye" />Página da obra</ButtonLink>
+                        <ButtonLink :to="book.url"><Icon icon="eye" />Página da obra</ButtonLink>
                     </div>
                 </div>
             </div>
@@ -115,7 +116,7 @@ useSortable(seeMoreList, work.value.volumes, {
         max-height: 90%;
     }
 
-    &__work-details {
+    &__book-details {
         flex: 1 1 60%;
         display: flex;
         flex-direction: column;
@@ -161,7 +162,7 @@ useSortable(seeMoreList, work.value.volumes, {
         }
     }
 
-    &__work-data {
+    &__book-data {
         flex: 1 fit-content;
         display: flex;
         gap: map-get($spacing, 'common-1');
@@ -202,7 +203,7 @@ useSortable(seeMoreList, work.value.volumes, {
         }
     }
 
-    &__work-info {
+    &__book-info {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -211,7 +212,7 @@ useSortable(seeMoreList, work.value.volumes, {
         overflow: hidden scroll;
     }
 
-    &__work-volume {
+    &__book-volume {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -308,11 +309,11 @@ html[theme*='dark'] {
             }
         }
 
-        &__work-details {
+        &__book-details {
             border-left: 2px solid $c-secundary;
         }
 
-        &__work-data p {
+        &__book-data p {
             color: $c-secundary;
 
             & span {
